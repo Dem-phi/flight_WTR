@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.m": "matlab",
+        "dense": "cpp",
+        "iostream": "cpp"
+    }
+}

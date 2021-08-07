@@ -1,0 +1,13 @@
+/tolerance/vision/x: 10
+/tolerance/vision/y: 10
+/tolerance/pose/x: 0.1
+/tolerance/pose/y: 0.1
+/tolerance/pose/z: 0.1
+/tolerance/vel/x: 0.05
+/tolerance/vel/y: 0.05
+/tolerance/vel/z: 0.1
+/tolerance/angle/x: 0.1
+/tolerance/angle/y: 0.1
+/tolerance/angle/z: 0.1
+/tolerance/angle/w: 0.1
+

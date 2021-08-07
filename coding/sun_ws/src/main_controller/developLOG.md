@@ -1,0 +1,10 @@
+- PFS.h 没有添加正方形方位约束
+- 没有确定MMCS三个level下的变换坐标阈值 v_min v_max
+- 没有确定docking模式下PID三个level的使用参数
+- 没有确定docking模式下收敛的容忍度 DOCKING_ERROR_TOLERANCE
+- 没有确定霍夫变换参数
+- 不清楚原框架subscriber在什么地方更新，可能是主函数中的新线程spin()
+- 高度锁定PID参数
+- 没有确定线速度角速度的最大值
+- 没有确定高度锁定的最大速度和容忍度
+- 没有确定收敛计数上限

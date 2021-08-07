@@ -1,0 +1,26 @@
+/k_position/x: 3.0 #default 2.0
+/k_position/y: 3.0
+/k_position/z: 0.0
+/i_position/x: 1.0 #default 1.0
+/i_position/y: 1.0
+/i_position/z: 0.0
+/k_velocity/x: 0.1
+/k_velocity/y: 0.1
+/k_velocity/z: 0.0
+
+/k_thrust: 0.0282
+
+/std_circle_0/x: 245
+/std_circle_0/y: 175
+/std_circle_1/x: 270
+/std_circle_1/y: 200
+/std_circle_2/x: 260
+/std_circle_2/y: 202
+
+/limit_vel_max/x: 0.3 #420 # max x 1
+/limit_vel_max/y: 0.3 #419 # max y 1
+/limit_vel_max/z: 0.1 #838 # max z 1
+/limit_vel_max/w: 0.1 #420 # max rotate 1rad/s
+
+/port: 2
+/add: 0

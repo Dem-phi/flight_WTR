@@ -1,0 +1,7 @@
+/B_area/x: 0.0
+/B_area/y: -2.0
+/B_area/if_use: true
+
+/C_area/x: 2.0
+/C_area/y: -1.8
+/C_area/if_use: true
