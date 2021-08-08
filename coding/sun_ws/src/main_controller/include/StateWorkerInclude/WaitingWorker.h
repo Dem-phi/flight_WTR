@@ -3,11 +3,16 @@
 
 #include <StateWorker.h>
 
-
+/* 
+Stay still, this state will never end
+@param None
+ */
 class WaitingWorker:public StateWorker
 {
 public:
     ros::NodeHandle nh;
+    ros::Publisher pub_vel;
+    geometry_msgs::TwistStamped msg_vel;
 
     virtual void run(StateInfo state_info);
     virtual bool is_finished();
@@ -18,20 +23,24 @@ public:
 
 WaitingWorker::WaitingWorker(ros::NodeHandle &nh){
     this->nh = nh;
+    this->pub_vel = nh.advertise<geometry_msgs::TwistStamped>(
+        "/mavros/setpoint_velocity/cmd_vel", 10
+    );
+    this->msg_vel.twist.linear.x = 0;
+    this->msg_vel.twist.linear.y = 0;
+    this->msg_vel.twist.linear.z = 0;
 }
 
-WaitingWorker::~WaitingWorker()
-{
+WaitingWorker::~WaitingWorker(){
 }
 
 void WaitingWorker::run(StateInfo state_info){
-    cout << "WaitingWorker is running" << endl;
+    this->pub_vel.publish(this->msg_vel);
     return;
 }
 
 bool WaitingWorker::is_finished(){
-    cout << "WaitingWorker is finished" << endl;
-    return true;
+    return false;
 }
 
 #endif

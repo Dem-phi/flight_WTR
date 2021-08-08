@@ -25,7 +25,17 @@ enum DOCKING_TYPE{
     DOCKING_TARGET      =   2,
 };
 
+// Adaptive learning type
+enum ADAPTIVELEARNING_TYPE{
+    ADAPTIVE_HEIGHTLOCK =   0,
+    ADAPTIVE_CIRCLE     =   1,  
+};
 
+// Detecting figure type
+enum DETECTINGFIGURE_TYPE{
+    DETECTING_CIRCLE    =   0,
+    DETECTING_RECTANGLE =   1,
+};
 
 
 }

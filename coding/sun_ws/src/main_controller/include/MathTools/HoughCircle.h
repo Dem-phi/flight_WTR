@@ -6,6 +6,11 @@
 
 using namespace std;
 
+
+/* 
+Hough circle detection
+@param None
+ */
 class HoughCircle{
 public:
     cv::Mat src;

@@ -1,4 +1,4 @@
-prefix=/home/grandpadzb/github/flight_WTR/coding/sun_ws/devel
+prefix=/home/grandpadzb/sun_ws/devel
 
 Name: main_controller
 Description: Description of main_controller

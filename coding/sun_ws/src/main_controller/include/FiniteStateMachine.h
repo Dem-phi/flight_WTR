@@ -74,9 +74,16 @@ void FSM::loop(const ros::TimerEvent &){
 
 
 
-/* @brief: build schedule table
-@param: format: enum sun::STATE_TYPE, arg specific params
-@param: sun::DOCKING, int type, int level */
+/* @brief build schedule table
+@param format: enum sun::STATE_TYPE, arg specific params
+@param sun::DOCKING, int type, int level 
+@param sun::ADAPTIVE_LEARNING, int adaptive_type, int max_iter
+@param sun::DETECTING, float direction_vector_x, float direction_vector_y, float max_sec, int figure_type
+@param sun::LANDING, None
+@param sun::TAKEOFF, float height
+@param sun::WAITING, None
+@param sun::HEIGHTSERV, float expected_height, float max_speed
+*/
 void FSM::build_ScheduleTable(int Schedule, ...){
     va_list arg_ptr;
     va_start(arg_ptr, Schedule);
@@ -94,12 +101,18 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 break;
             }
             case sun::ADAPTIVE_LEARNING:{
-                Adaptive_LearningWorker* tmp_worker = new Adaptive_LearningWorker(this->nh);
+                int adaptive_type = va_arg(arg_ptr, int);
+                int max_iter = va_arg(arg_ptr, int);
+                Adaptive_LearningWorker* tmp_worker = new Adaptive_LearningWorker(this->nh, adaptive_type, max_iter);
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }
             case sun::DETECTING:{
-                DetectingWorker* tmp_worker = new DetectingWorker(this->nh);
+                float x = va_arg(arg_ptr, double);
+                float y = va_arg(arg_ptr, double);
+                float max_sec = va_arg(arg_ptr, double);
+                int type = va_arg(arg_ptr, int);
+                DetectingWorker* tmp_worker = new DetectingWorker(this->nh, x, y, max_sec, type);
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }
@@ -119,7 +132,8 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 break;
             }
             case sun::TAKEOFF:{
-                TakeoffWorker* tmp_worker = new TakeoffWorker(this->nh);
+                float height = va_arg(arg_ptr, double);
+                TakeoffWorker* tmp_worker = new TakeoffWorker(this->nh, height);
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }
@@ -135,7 +149,6 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }
-
             default:
                 ROS_ERROR("Wrong type of Schedule Table!");
                 exit(0);

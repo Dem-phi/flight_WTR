@@ -6,7 +6,11 @@
 #include <PIDcontroller.h>
 #include <geometry_msgs/TwistStamped.h>
 
-
+/* 
+fly to a given height with a speed constraint
+@param float expected_height
+@param float max_speed
+ */
 class HeightServWorker:public StateWorker
 {
 public:

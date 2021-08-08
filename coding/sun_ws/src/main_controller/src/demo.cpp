@@ -7,11 +7,11 @@ int main(int argc, char** argv){
 
     FSM FSMachine(nh);
     FSMachine.build_ScheduleTable(
-        sun::TAKEOFF,
-        sun::DETECTING,
-        sun::DOCKING, sun::DOCKING_CIRCLE, 3, 120, 100,
-        sun::TAKEOFF,
-        sun::DETECTING,
+        sun::TAKEOFF,       1.0,
+        sun::DETECTING,     2,                      -1, 5,      sun::DETECTING_CIRCLE,
+        sun::DOCKING,       sun::DOCKING_CIRCLE,    3,  120,    100,
+        sun::TAKEOFF,       2.0,
+        sun::DETECTING,     4,                      -1, 5,      sun::DETECTING_RECTANGLE,
         sun::LANDING,
         sun::END
     );

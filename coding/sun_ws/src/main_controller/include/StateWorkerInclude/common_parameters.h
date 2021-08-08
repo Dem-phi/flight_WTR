@@ -14,8 +14,12 @@ using namespace cv;
 
 namespace sun{
 // velocity constrains
-float MAX_LINEAR_VEL = 3;
+float MAX_LINEAR_VEL  = 3;
 float MAX_ANGULAR_VEL = 1;
+
+// range of PID parameters
+Vector3f MAX_PID_PARAMS = Vector3f(30, 6, 2);
+Vector3f MIN_PID_PARAMS = Vector3f(20, 4, 0);
 
 // max convergence counter
 int MAX_CONVERGENCE_COUNTER = 300;

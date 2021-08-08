@@ -310,12 +310,8 @@ run管做什么事，is_finished管判断是否完成
 
 ## 3 还需要完成的
 
-- DetectingWorker：朝着给定的方位缓慢飞行，并且寻找圆或者方块，如果飞到一定的时间还没有找到，就原地暂停不动。
-- LandingWorker：降落，并且降落完了还要让飞机锁定，锁定之后exit(0)，就是这么绝，确保降落后万无一失
 - ManualWorker：手动模式，可以把遥控器发送的数据信息写到StateInfo结构体里头
 - OffloadingWorker：与stm32通讯，等待卸货，卸货完成后切换到下一步。
-- TakeoffWorker：飞机解锁，并且飞到指定高度
-- WaitingWorker：发送0速度，原地不动
 - MsgJar中的蓝牙通讯数据更新函数
 - MsgJar中的串口通讯数据更新函数
 - 参数调试

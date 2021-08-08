@@ -9,7 +9,10 @@ using namespace Eigen;
 #define infinity MAXFLOAT
 
 
-// adaptive PID parameters learning machine, powered by PSO
+/* adaptive PID parameters learning machine, powered by PSO 
+@param Vector3f param_min
+@param Vector3f param_max
+*/
 class PSO{
 public:
     vector<Vector3f> local_best_params;
@@ -48,7 +51,10 @@ PSO::PSO(Vector3f param_min, Vector3f param_max, int particle_num){
 PSO::~PSO(){
 }
 
-// update new parameters according to given run time, you can set a scale used to modify the updated parameters' range
+/* update new parameters according to given run time, you can set a scale used to modify the updated parameters' range 
+@param vector<float> run_t
+@param vector<Vector3f> run_params
+*/
 vector<Vector3f> PSO::run(vector<float> run_t, vector<Vector3f> run_params, float scale){
     vector<Vector3f> new_params;
     // update best run time
