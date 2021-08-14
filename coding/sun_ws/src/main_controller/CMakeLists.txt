@@ -45,15 +45,6 @@ catkin_package(
 
 )
 
-# add_executable(main_fsm_node
-#         App/mav_fsm_node.cpp
-#         src/mav_fsm.cpp
-#         )
-# target_link_libraries(main_fsm_node
-#         ${catkin_LIBRARIES}
-#         ${THIRD_PARTY_LIBS}
-#         )
-
 add_executable(rs_remap
         App/realsenseRemap.cpp)
 target_link_libraries(rs_remap
@@ -79,13 +70,4 @@ target_link_libraries(demo
         ${THIRD_PARTY_LIBS}
         ${catkin_LIBRARIES}
 )
-
-#add_executable(laser
-#        App/laser_node.cpp
-#       )
-#target_link_libraries(laser
-#        /usr/lib/x86_64-linux-gnu/libjsoncpp.so
-#        ${THIRD_PARTY_LIBS}
-#        )
-
 

@@ -1,3 +1,0 @@
-/home/grandpadzb/cpp/circle_detector/build/CMakeFiles/rebuild_cache.dir
-/home/grandpadzb/cpp/circle_detector/build/CMakeFiles/edit_cache.dir
-/home/grandpadzb/cpp/circle_detector/build/CMakeFiles/PROJECT_NAME.dir

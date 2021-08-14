@@ -10,6 +10,7 @@
 #include <TakeoffWorker.h>
 #include <WaitingWorker.h>
 #include <HeightServWorker.h>
+#include <PositionWorker.h>
 
 
 #endif

@@ -1,3 +1,5 @@
+### unfinished
+
 - PFS.h 没有添加正方形方位约束
 - 没有确定MMCS三个level下的变换坐标阈值 v_min v_max
 - 没有确定docking模式下PID三个level的使用参数
@@ -15,3 +17,7 @@
 - 没有确定detecting时连续检测到图像多少次，认为检测完毕
 - 没有确定该如何使飞机锁定
 - 没有确定飞机落地稳定状态是否是"LAND"
+
+
+
+#### finished

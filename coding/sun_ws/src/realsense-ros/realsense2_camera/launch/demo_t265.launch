@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find realsense2_camera)/launch/rs_t265.launch"/>
+
+  <remap from="/camera/odom/sample" to="/mavros/vision_pose/pose"/>
+  
+
+</launch>

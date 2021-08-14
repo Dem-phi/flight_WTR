@@ -1,4 +1,4 @@
-#ifndef MAIN_CONTROLLER_MAV_FSM_H
+ifndef MAIN_CONTROLLER_MAV_FSM_H
 #define MAIN_CONTROLLER_MAV_FSM_H
 
 #include "common_include.h"

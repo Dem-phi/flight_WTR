@@ -10,9 +10,14 @@ using namespace std;
 /* 
 MsgJar is built to simplify ros_msg/serial_msg/bluetooth_msg and so on.
 
-
-
 */
+#if IF_USE_MANNUL
+typedef struct VelInfo{
+    float linear_x;
+    float linear_y;
+    float linear_z;
+}VelInfo;
+#endif
 
 typedef struct StateInfo{
     bool connected;                     // is connected
@@ -21,15 +26,25 @@ typedef struct StateInfo{
     geometry_msgs::Vector3 linear;      // linear velocity
     geometry_msgs::Vector3 angular;     // angular velocity
     float height;                       // height data from laser
+    int emergency_land;                 // if needs emergency land
+#if IF_USE_MANNUL
+    int manual_takeoff;                 // use Manual Control for safety
+    VelInfo vel_info;
+#endif
+#if IF_USE_T265
+    geometry_msgs::Pose cur_pose;
+#endif
 }StateInfo;
 
 void update_serial_data(StateInfo* state_info){
     /* code */
+
     return;
 }
 
 void update_bluetooth_data(StateInfo* state_info){
     /* code */
+
     return;
 }
 

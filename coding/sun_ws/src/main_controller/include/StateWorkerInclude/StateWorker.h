@@ -5,12 +5,10 @@
 #include <iostream>
 #include <ros/ros.h>
 #include <vector>
+#include "Reference/common_include.h"
 #include <common_defination.h>
 #include <common_parameters.h>
 #include <MsgJar.h>
-
-
-
 
 
 using namespace std;

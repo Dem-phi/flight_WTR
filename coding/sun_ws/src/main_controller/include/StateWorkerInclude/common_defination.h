@@ -1,6 +1,8 @@
 #ifndef _COMMON_DEFINATION_
 #define _COMMON_DEFINATION_
 
+#define IF_USE_MANNUL 1
+#define IF_USE_T265 1
 
 namespace sun{
 
@@ -15,7 +17,8 @@ enum STATE_TYPE{
     MANUAL              =   6,
     WAITING             =   7,
     HEIGHTSERV          =   8,
-    END                 =   9,
+    POSITION            =   9,
+    END                 =   10,
 };
 
 // Docking Mode type
@@ -37,6 +40,13 @@ enum DETECTINGFIGURE_TYPE{
     DETECTING_RECTANGLE =   1,
 };
 
+// Goal Pose Type
+enum GOALPOSE_TYPE{
+    GOAL_A              =   0,
+    GOAL_B              =   1,
+    GOAL_C              =   2,
+    GOAL_H              =   3,
+};
 
 }
 

@@ -6,13 +6,19 @@ int main(int argc, char** argv){
     ros::NodeHandle nh;
 
     FSM FSMachine(nh);
-    FSMachine.build_ScheduleTable(
+/*    FSMachine.build_ScheduleTable(
         sun::TAKEOFF,       1.0,
         sun::DETECTING,     2,                      -1, 5,      sun::DETECTING_CIRCLE,
         sun::DOCKING,       sun::DOCKING_CIRCLE,    3,  120,    100,
         sun::TAKEOFF,       2.0,
         sun::DETECTING,     4,                      -1, 5,      sun::DETECTING_RECTANGLE,
         sun::LANDING,
+        sun::POSITION,      sun::GOAL_H,
+        sun::END
+    );*/
+    FSMachine.build_ScheduleTable(
+        sun::TAKEOFF,       1.0,
+        sun::POSITION,      sun::GOAL_H,
         sun::END
     );
     FSMachine.set_timer();
