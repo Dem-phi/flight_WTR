@@ -1,2 +1,5 @@
-# flight_WTR
-pixhawk mini控制F450，pixracer控制小飞机；后续会加上无人机飞行的自动飞行、视觉处理部分。
+# UAV_WTR
+FSM frame is provided by Kevin and Grandpadzb
+Machanism is designed by gzl
+We uses Pixhawk Mini to control UAV(F330)
+realsense-t265 feedback the current position of UAV 
