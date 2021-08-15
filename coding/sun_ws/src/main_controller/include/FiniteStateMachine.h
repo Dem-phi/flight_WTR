@@ -105,9 +105,9 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 break;
             }
             case sun::ADAPTIVE_LEARNING:{
-                int adaptive_type = va_arg(arg_ptr, int);
                 int max_iter = va_arg(arg_ptr, int);
-                Adaptive_LearningWorker* tmp_worker = new Adaptive_LearningWorker(this->nh, adaptive_type, max_iter);
+                float expected_height = va_arg(arg_ptr, double);
+                Adaptive_LearningWorker* tmp_worker = new Adaptive_LearningWorker(this->nh, max_iter, expected_height);
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }

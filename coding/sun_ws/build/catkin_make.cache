@@ -1,0 +1,2 @@
+main_controller:realsense-ros/realsense2_camera:realsense-ros/realsense2_description
+-DCATKIN_DEVEL_PREFIX=/home/grandpadzb/github/flight_WTR/coding/sun_ws/devel -DCMAKE_INSTALL_PREFIX=/home/grandpadzb/github/flight_WTR/coding/sun_ws/install -G Unix Makefiles
