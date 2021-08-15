@@ -62,9 +62,9 @@ namespace sun{
     cv::Scalar COLOR_DRAW = cv::Scalar(120, 180, 120, 15);
 
 // position tolerance
-    float TOLERANCE_X = 0.1;
-    float TOLERANCE_Y = 0.1;
-    float TOLERANCE_Z = 0.05;
+    float POSITION_TOLERANCE_X = 0.08;
+    float POSITION_TOLERANCE_Y = 0.08;
+    float POSITION_TOLERANCE_Z = 0.05;
 
 // position A B C area
     float A_AREA_X = 2.0;

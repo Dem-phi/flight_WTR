@@ -36,9 +36,9 @@ void ManualWorker::run(StateInfo state_info){
 #if IF_USE_MANNUL
     this->msg_vel.header.frame_id = "body";
     this->msg_vel.header.stamp = ros::Time::now();
-    this->msg_vel.twist.linear.x = state_info.vel_info.linear_x;
-    this->msg_vel.twist.linear.y = state_info.vel_info.linear_y;
-    this->msg_vel.twist.linear.z = state_info.vel_info.linear_z;
+    this->msg_vel.twist.linear.x = state_info.vel_info.x;
+    this->msg_vel.twist.linear.y = state_info.vel_info.y;
+    this->msg_vel.twist.linear.z = state_info.vel_info.z;
     this->pub_vel_.publish(msg_vel);
 #endif
     cout << "ManualWorker is running" << endl;

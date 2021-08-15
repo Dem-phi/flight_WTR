@@ -27,6 +27,8 @@ public:
     void PositionCallback(const geometry_msgs::PoseStampedConstPtr &msg);
     void set_timer();
 
+    LandingWorker* emergency_land_worker; 
+
     FSM(ros::NodeHandle &nh);
     ~FSM();
 };
@@ -34,6 +36,7 @@ public:
 // ===================== Realization =====================
 FSM::FSM(ros::NodeHandle &nh){
     this->nh = nh;
+    this->emergency_land_worker = new LandingWorker(this->nh);
     this->sub_state = nh.subscribe("/mavros/state", 10, &FSM::StateCallback, this);
     this->sub_vel = nh.subscribe("/mavros/local_position/velocity", 10, &FSM::VelocityCallback, this);
     this->sub_rc = nh.subscribe("/mavros/rc/in", 10, &FSM::RCCallback, this);
@@ -45,6 +48,7 @@ FSM::~FSM(){
     for(auto each:this->Workers){
         delete each;
     }
+    delete this->emergency_land_worker;
 }
 
 void FSM::set_timer(){
@@ -56,14 +60,7 @@ void FSM::set_timer(){
 void FSM::loop(const ros::TimerEvent &){
     // Emergency land
     if(state_info.emergency_land < 1100 ){
-        if(!this->Workers.empty() && flow < _MAX_){
-            this->Workers.clear();
-            LandingWorker* tmp_worker = new LandingWorker(this->nh);
-            this->Workers.push_back((StateWorker*)tmp_worker);
-            // Only enter this for once
-            flow = _MAX_;
-        }
-        this->Workers[0]->run(this->state_info);
+        this->emergency_land_worker->run(this->state_info);
         return;
     }
     // running by schedule table
@@ -157,8 +154,10 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 break;
             }
             case sun::POSITION:{
-                int type = va_arg(arg_ptr, int);
-                PositionWorker* tmp_worker = new PositionWorker(this->nh, type);
+                double x = va_arg(arg_ptr, double);
+                double y = va_arg(arg_ptr, double);
+                double z = va_arg(arg_ptr, double);
+                PositionWorker* tmp_worker = new PositionWorker(this->nh, x, y, z);
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }
@@ -188,25 +187,21 @@ void FSM::VelocityCallback(const geometry_msgs::TwistStampedConstPtr &msg){
 
 void FSM::RCCallback(const mavros_msgs::RCInConstPtr &msg){
     this->state_info.emergency_land = msg->channels[6];
-#if IF_USE_MANNUL
     this->state_info.manual_takeoff = msg->channels[5];
     //limit x,y velocity to [-1, 1]
-    this->state_info.vel_info.linear_x = (msg->channels[1]-sun::MID_PITCH)
+    this->state_info.vel_info.x = (msg->channels[1]-sun::MID_PITCH)
             /((sun::MAX_PITCH-sun::MIN_PITCH)/2);
-    this->state_info.vel_info.linear_y = (msg->channels[0]-sun::MID_ROLL)
+    this->state_info.vel_info.y = (msg->channels[0]-sun::MID_ROLL)
             /((sun::MAX_ROLL-sun::MIN_ROLL)/(-2));
     //limit z velocity to [-0.1, 0.1]
-    this->state_info.vel_info.linear_z = (msg->channels[2]-sun::MID_THROOTTLE)
+    this->state_info.vel_info.z = (msg->channels[2]-sun::MID_THROOTTLE)
             /((sun::MAX_THROOTTLE-sun::MIN_THROOTTLE)*5);
-#endif
     return;
 }
 
 void FSM::PositionCallback(const geometry_msgs::PoseStampedConstPtr &msg){
-#if IF_USE_T265
     this->state_info.cur_pose = msg->pose;
     return;
-#endif
 }
 
 
