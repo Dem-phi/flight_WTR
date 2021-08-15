@@ -27,20 +27,25 @@ typedef struct StateInfo{
     geometry_msgs::Pose cur_pose;       // position info provided by t265 vision fusion
 }StateInfo;
 
+
+// TODO update info from serial port
 void update_serial_data(StateInfo* state_info){
     /* code */
 
     return;
 }
-
+// TODO update info from booth device
 void update_bluetooth_data(StateInfo* state_info){
     /* code */
 
     return;
 }
 
-/* 
-Publish velocity with constraints
+/**
+ * @brief Velocity publisher with constraints. It would be safer.
+ * @param {ros::Publisher*} pub
+ * @param {geometry_msgs::TwistStamped} msg
+ * @return none
  */
 void publish_vel(ros::Publisher* pub, geometry_msgs::TwistStamped msg){
     float linear_speed = sqrt(

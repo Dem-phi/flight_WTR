@@ -175,9 +175,9 @@ bool Adaptive_LearningWorker::is_finished(){
 }
 
 void Adaptive_LearningWorker::clear_msg_vel(){
-    this->msg_vel.twist.linear.x = 0;
-    this->msg_vel.twist.linear.y = 0;
-    this->msg_vel.twist.linear.z = 0;
+    this->msg_vel.twist.linear.x  = 0;
+    this->msg_vel.twist.linear.y  = 0;
+    this->msg_vel.twist.linear.z  = 0;
     this->msg_vel.twist.angular.x = 0;
     this->msg_vel.twist.angular.y = 0;
     this->msg_vel.twist.angular.z = 0;

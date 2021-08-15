@@ -14,12 +14,12 @@ using namespace cv;
 namespace sun{
 
 //RC channel parameters
-    float MAX_PITCH = 1928; //forward +x
-    float MID_PITCH = 1509;
-    float MIN_PITCH = 1090;
-    float MAX_ROLL = 1933; //right -y
-    float MID_ROLL = 1514;
-    float MIN_ROLL = 1095;
+    float MAX_PITCH     = 1928;  //forward +x
+    float MID_PITCH     = 1509;
+    float MIN_PITCH     = 1090;
+    float MAX_ROLL      = 1933;  //right -y
+    float MID_ROLL      = 1514;
+    float MIN_ROLL      = 1095;
     float MAX_THROOTTLE = 1933;
     float MID_THROOTTLE = 1519;
     float MIN_THROOTTLE = 1105;
@@ -42,7 +42,7 @@ namespace sun{
 
 // height locking PID params & tolerance
     Vector3f HEIGHTLOCKING_PID_PARAMS = Vector3f(6, 1, 0.2);
-    float HEIGHTLOCKING_TOLERANCE = 0.05;
+    float    HEIGHTLOCKING_TOLERANCE  = 0.05;
 
 // camera port
     int camera_port = 0;

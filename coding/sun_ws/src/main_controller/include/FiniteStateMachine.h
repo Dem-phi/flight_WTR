@@ -34,6 +34,8 @@ public:
 };
 
 // ===================== Realization =====================
+
+
 FSM::FSM(ros::NodeHandle &nh){
     this->nh = nh;
     this->emergency_land_worker = new LandingWorker(this->nh);
@@ -81,9 +83,8 @@ void FSM::loop(const ros::TimerEvent &){
 
 
 /* @brief build schedule table
-@param format: enum sun::STATE_TYPE, arg specific params
 @param sun::DOCKING, int type, int level 
-@param sun::ADAPTIVE_LEARNING, int adaptive_type, int max_iter
+@param sun::ADAPTIVE_LEARNING, int max_iter, float expected_height
 @param sun::DETECTING, float direction_vector_x, float direction_vector_y, float max_sec, int figure_type
 @param sun::LANDING, None
 @param sun::TAKEOFF, float height
