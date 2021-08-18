@@ -1,4 +1,4 @@
-# Install script for directory: /home/demphi/sun_ws/src/main_controller
+# Install script for directory: /home/dji/sun_ws/src/main_controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -56,7 +56,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -68,7 +68,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/usr/local" TYPE PROGRAM FILES "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -81,8 +81,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/setup.bash"
-    "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/local_setup.bash"
+    "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/setup.bash"
+    "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
@@ -96,8 +96,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/setup.sh"
-    "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/local_setup.sh"
+    "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/setup.sh"
+    "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
@@ -111,8 +111,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES
-    "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/setup.zsh"
-    "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/local_setup.zsh"
+    "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/setup.zsh"
+    "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
@@ -125,27 +125,27 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/usr/local" TYPE FILE FILES "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/.rosinstall")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/main_controller.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/main_controller.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/main_controller/cmake" TYPE FILE FILES
-    "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/main_controllerConfig.cmake"
-    "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/main_controllerConfig-version.cmake"
+    "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/main_controllerConfig.cmake"
+    "/home/dji/sun_ws/src/main_controller/cmake-build-debug/catkin_generated/installspace/main_controllerConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/main_controller" TYPE FILE FILES "/home/demphi/sun_ws/src/main_controller/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/main_controller" TYPE FILE FILES "/home/dji/sun_ws/src/main_controller/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/demphi/sun_ws/src/main_controller/cmake-build-debug/gtest/cmake_install.cmake")
+  include("/home/dji/sun_ws/src/main_controller/cmake-build-debug/gtest/cmake_install.cmake")
 
 endif()
 
@@ -157,5 +157,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dji/sun_ws/src/main_controller/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

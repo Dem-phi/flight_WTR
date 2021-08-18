@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/demphi/sun_ws/src/main_controller/App/showStatus.cpp" "/home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/show_status.dir/App/showStatus.cpp.o"
+  "/home/dji/sun_ws/src/main_controller/App/showStatus.cpp" "/home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/show_status.dir/App/showStatus.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -25,7 +25,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include/MathTools"
   "../include/MsgJar"
   "../include/Reference"
-  "/usr/local/include/opencv4"
+  "/usr/local/include/opencv"
   )
 
 # Targets to which this target links.

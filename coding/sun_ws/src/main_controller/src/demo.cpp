@@ -4,7 +4,7 @@
 int main(int argc, char** argv){
     ros::init(argc, argv, "demo");
     ros::NodeHandle nh;
-
+    
     FSM FSMachine(nh);
 /*    FSMachine.build_ScheduleTable(
         sun::TAKEOFF,       1.0,

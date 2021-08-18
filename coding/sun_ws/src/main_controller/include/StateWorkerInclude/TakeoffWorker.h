@@ -4,8 +4,9 @@
 #include <StateWorker.h>
 #include <mavros_msgs/SetMode.h>
 #include <mavros_msgs/CommandBool.h>
+#include <geometry_msgs/TwistStamped.h>
+#include <geometry_msgs/PoseStamped.h>
 #include <PIDcontroller.h>
-#include <PositionTools.h>
 
 /**
   * @brief: takeoff and fly to a given height
@@ -18,19 +19,19 @@ public:
     ros::Publisher pub_vel, pub_pose;
     geometry_msgs::TwistStamped msg_vel;
     geometry_msgs::PoseStamped takeoff_pose;
+    bool is_init = false;
 
     virtual void run(StateInfo state_info);
     virtual bool is_finished();
 
     PIDcontroller* model_PID = new PIDcontroller(sun::HEIGHTLOCKING_PID_PARAMS);
-    PositionTools* position_tools = new PositionTools();
 
     mavros_msgs::SetMode offb_set_mode;
     mavros_msgs::CommandBool arm_cmd;
     ros::ServiceClient set_mode_client, arming_client;
 
     float expected_height;
-    int convergence_counter;
+    int convergence_counter = 0;
 
 
     TakeoffWorker(ros::NodeHandle &nh, float height);
@@ -58,7 +59,9 @@ TakeoffWorker::~TakeoffWorker(){
 void TakeoffWorker::run(StateInfo state_info){
     ros::Time last_request = ros::Time::now();
     // Auto takeoff
-/*    if( state_info.mode != "OFFBOARD" &&
+    /*
+    if(state_info.gogogo){
+        if( state_info.mode != "OFFBOARD" &&
         (ros::Time::now() - last_request > ros::Duration(5.0))){
         if( set_mode_client.call(offb_set_mode) &&
             offb_set_mode.response.mode_sent){
@@ -73,22 +76,30 @@ void TakeoffWorker::run(StateInfo state_info){
                 ROS_INFO("Vehicle armed");
             }
             last_request = ros::Time::now();
+            }
         }
     }*/
 
+
     //Maunal control
     if(state_info.manual_takeoff < 1500){
+        if(~this->is_init){
+            this->takeoff_pose.pose = state_info.cur_pose;
+            this->takeoff_pose.pose.position.z = this->expected_height;
+            this->is_init = true;
+        }
         /*
          * position control of takeoff mode
          */
         takeoff_pose.header.stamp = ros::Time::now();
         takeoff_pose.pose = state_info.cur_pose;
         pub_pose.publish(takeoff_pose);
-        if(position_tools->IsArrive(state_info.cur_pose, takeoff_pose.pose)){
-            this->convergence_counter++;
-        }
-        else{
-            this->convergence_counter=0;
+        if( abs(this->takeoff_pose.pose.position.x - state_info.cur_pose.position.x) < sun::POSITION_TOLERANCE_X &&
+            abs(this->takeoff_pose.pose.position.y - state_info.cur_pose.position.y) < sun::POSITION_TOLERANCE_Y &&
+            abs(this->takeoff_pose.pose.position.z - state_info.cur_pose.position.z) < sun::POSITION_TOLERANCE_Z ){
+            this->convergence_counter ++;
+        }else{
+            this->convergence_counter = 0;
         }
     }
 

@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/dji/apps/clion/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/dji/apps/clion/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/demphi/sun_ws/src/main_controller
+CMAKE_SOURCE_DIR = /home/dji/sun_ws/src/main_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/demphi/sun_ws/src/main_controller/cmake-build-debug
+CMAKE_BINARY_DIR = /home/dji/sun_ws/src/main_controller/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/demo.dir/depend.make
@@ -79,16 +79,16 @@ include CMakeFiles/demo.dir/flags.make
 
 CMakeFiles/demo.dir/src/demo.cpp.o: CMakeFiles/demo.dir/flags.make
 CMakeFiles/demo.dir/src/demo.cpp.o: ../src/demo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo.dir/src/demo.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/demo.cpp.o -c /home/demphi/sun_ws/src/main_controller/src/demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/demo.dir/src/demo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/demo.cpp.o -c /home/dji/sun_ws/src/main_controller/src/demo.cpp
 
 CMakeFiles/demo.dir/src/demo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/demo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/demphi/sun_ws/src/main_controller/src/demo.cpp > CMakeFiles/demo.dir/src/demo.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dji/sun_ws/src/main_controller/src/demo.cpp > CMakeFiles/demo.dir/src/demo.cpp.i
 
 CMakeFiles/demo.dir/src/demo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/demo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/demphi/sun_ws/src/main_controller/src/demo.cpp -o CMakeFiles/demo.dir/src/demo.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dji/sun_ws/src/main_controller/src/demo.cpp -o CMakeFiles/demo.dir/src/demo.cpp.s
 
 # Object files for target demo
 demo_OBJECTS = \
@@ -126,13 +126,14 @@ devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libpthread.so
 devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_highgui.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_ml.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_objdetect.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_photo.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_stitching.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_video.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_videoio.so.4.5.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_dnn.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_ml.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_objdetect.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_shape.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_stitching.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_superres.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_videostab.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_viz.so.3.4.1
 devel/lib/main_controller/demo: /opt/ros/melodic/lib/libcv_bridge.so
 devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
 devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
@@ -160,15 +161,18 @@ devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libpthread.so
 devel/lib/main_controller/demo: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_imgcodecs.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_calib3d.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_dnn.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_features2d.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_flann.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_imgproc.so.4.5.1
-devel/lib/main_controller/demo: /usr/local/lib/libopencv_core.so.4.5.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_calib3d.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_features2d.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_flann.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_highgui.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_photo.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_video.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_videoio.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_imgcodecs.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_imgproc.so.3.4.1
+devel/lib/main_controller/demo: /usr/local/lib/libopencv_core.so.3.4.1
 devel/lib/main_controller/demo: CMakeFiles/demo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable devel/lib/main_controller/demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable devel/lib/main_controller/demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -181,6 +185,6 @@ CMakeFiles/demo.dir/clean:
 .PHONY : CMakeFiles/demo.dir/clean
 
 CMakeFiles/demo.dir/depend:
-	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/demphi/sun_ws/src/main_controller /home/demphi/sun_ws/src/main_controller /home/demphi/sun_ws/src/main_controller/cmake-build-debug /home/demphi/sun_ws/src/main_controller/cmake-build-debug /home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/demo.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dji/sun_ws/src/main_controller /home/dji/sun_ws/src/main_controller /home/dji/sun_ws/src/main_controller/cmake-build-debug /home/dji/sun_ws/src/main_controller/cmake-build-debug /home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/demo.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/demo.dir/depend
 

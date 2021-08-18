@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/dji/apps/clion/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/dji/apps/clion/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/demphi/sun_ws/src/main_controller
+CMAKE_SOURCE_DIR = /home/dji/sun_ws/src/main_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/demphi/sun_ws/src/main_controller/cmake-build-debug
+CMAKE_BINARY_DIR = /home/dji/sun_ws/src/main_controller/cmake-build-debug
 
 # Utility rule file for nav_msgs_generate_messages_cpp.
 
@@ -87,6 +87,6 @@ CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean:
 .PHONY : CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
 
 CMakeFiles/nav_msgs_generate_messages_cpp.dir/depend:
-	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/demphi/sun_ws/src/main_controller /home/demphi/sun_ws/src/main_controller /home/demphi/sun_ws/src/main_controller/cmake-build-debug /home/demphi/sun_ws/src/main_controller/cmake-build-debug /home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/nav_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dji/sun_ws/src/main_controller /home/dji/sun_ws/src/main_controller /home/dji/sun_ws/src/main_controller/cmake-build-debug /home/dji/sun_ws/src/main_controller/cmake-build-debug /home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/nav_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/nav_msgs_generate_messages_cpp.dir/depend
 

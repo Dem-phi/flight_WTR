@@ -4,52 +4,48 @@
 #include <mavros_msgs/State.h>
 #include <geometry_msgs/Vector3.h>
 #include <geometry_msgs/TwistStamped.h>
+#include <geometry_msgs/Pose.h>
 #include <iostream>
 #include <common_parameters.h>
+#include <ros/ros.h>
 using namespace std;
 /* 
 MsgJar is built to simplify ros_msg/serial_msg/bluetooth_msg and so on.
 
 */
-#if IF_USE_MANNUL
-typedef struct VelInfo{
-    float linear_x;
-    float linear_y;
-    float linear_z;
-}VelInfo;
-#endif
 
 typedef struct StateInfo{
     bool connected;                     // is connected
     bool armed;                         // is unlocked
+    bool gogogo;                        // use the button of Raspberry Pi to control UAV for auto takeoff
+    float height;                       // height data from laser
+    int emergency_land;                 // if needs emergency land
+    int manual_takeoff;                 // use Manual Control for safety
     string mode;                        // flight mode, OFFBOARD eg.
     geometry_msgs::Vector3 linear;      // linear velocity
     geometry_msgs::Vector3 angular;     // angular velocity
-    float height;                       // height data from laser
-    int emergency_land;                 // if needs emergency land
-#if IF_USE_MANNUL
-    int manual_takeoff;                 // use Manual Control for safety
-    VelInfo vel_info;
-#endif
-#if IF_USE_T265
-    geometry_msgs::Pose cur_pose;
-#endif
+    geometry_msgs::Vector3 vel_info;    // velocity commend in manual mode 
+    geometry_msgs::Pose cur_pose;       // position info provided by t265 vision fusion
 }StateInfo;
 
+
+// TODO update info from serial port
 void update_serial_data(StateInfo* state_info){
     /* code */
-
     return;
 }
-
+// TODO update info from booth device
 void update_bluetooth_data(StateInfo* state_info){
     /* code */
 
     return;
 }
 
-/* 
-Publish velocity with constraints
+/**
+ * @brief Velocity publisher with constraints. It would be safer.
+ * @param {ros::Publisher*} pub
+ * @param {geometry_msgs::TwistStamped} msg
+ * @return none
  */
 void publish_vel(ros::Publisher* pub, geometry_msgs::TwistStamped msg){
     float linear_speed = sqrt(

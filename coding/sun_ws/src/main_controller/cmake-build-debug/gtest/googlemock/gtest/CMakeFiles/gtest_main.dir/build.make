@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/dji/apps/clion/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/dji/apps/clion/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/demphi/sun_ws/src/main_controller
+CMAKE_SOURCE_DIR = /home/dji/sun_ws/src/main_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/demphi/sun_ws/src/main_controller/cmake-build-debug
+CMAKE_BINARY_DIR = /home/dji/sun_ws/src/main_controller/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend.make
@@ -79,16 +79,16 @@ include gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/flags.make
 
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/flags.make
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: /usr/src/googletest/googletest/src/gtest_main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
-	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/googletest/googletest/src/gtest_main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/googletest/googletest/src/gtest_main.cc
 
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest_main.dir/src/gtest_main.cc.i"
-	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /usr/src/googletest/googletest/src/gtest_main.cc > CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
+	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /usr/src/googletest/googletest/src/gtest_main.cc > CMakeFiles/gtest_main.dir/src/gtest_main.cc.i
 
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest_main.dir/src/gtest_main.cc.s"
-	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /usr/src/googletest/googletest/src/gtest_main.cc -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
+	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /usr/src/googletest/googletest/src/gtest_main.cc -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.s
 
 # Object files for target gtest_main
 gtest_main_OBJECTS = \
@@ -101,8 +101,8 @@ gtest/googlemock/gtest/libgtest_main.so: gtest/googlemock/gtest/CMakeFiles/gtest
 gtest/googlemock/gtest/libgtest_main.so: gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make
 gtest/googlemock/gtest/libgtest_main.so: gtest/googlemock/gtest/libgtest.so
 gtest/googlemock/gtest/libgtest_main.so: gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libgtest_main.so"
-	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest_main.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libgtest_main.so"
+	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest_main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build: gtest/googlemock/gtest/libgtest_main.so
@@ -110,10 +110,10 @@ gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build: gtest/googlemock/gtest/l
 .PHONY : gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build
 
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/clean:
-	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && $(CMAKE_COMMAND) -P CMakeFiles/gtest_main.dir/cmake_clean.cmake
+	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest && $(CMAKE_COMMAND) -P CMakeFiles/gtest_main.dir/cmake_clean.cmake
 .PHONY : gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/clean
 
 gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend:
-	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/demphi/sun_ws/src/main_controller /usr/src/googletest/googletest /home/demphi/sun_ws/src/main_controller/cmake-build-debug /home/demphi/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest /home/demphi/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dji/sun_ws/src/main_controller /usr/src/googletest/googletest /home/dji/sun_ws/src/main_controller/cmake-build-debug /home/dji/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest /home/dji/sun_ws/src/main_controller/cmake-build-debug/gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/depend
 
