@@ -2,6 +2,7 @@
 #define _OFFLOADINGWORKER_
 
 #include <StateWorker.h>
+#include <time.h>
 
 
 class OffloadingWorker:public StateWorker
@@ -11,42 +12,50 @@ public:
     ros::Publisher servo_pub;
     geometry_msgs::Vector3 servo_msg;
     int area;
+    bool is_init = false;
+    time_t timer;
     virtual void run(StateInfo state_info);
     virtual bool is_finished();
 
-    OffloadingWorker(ros::NodeHandle &nh);
+    OffloadingWorker(ros::NodeHandle &nh, int area);
     ~OffloadingWorker();
 };
 
-OffloadingWorker::OffloadingWorker(ros::NodeHandle &nh){
+OffloadingWorker::OffloadingWorker(ros::NodeHandle &nh, int area){
     this->nh = nh;
     this->servo_pub = nh.advertise<geometry_msgs::Vector3>("/sun/servo_ctl", 10);
 }
 
-OffloadingWorker::~OffloadingWorker()
-{
+OffloadingWorker::~OffloadingWorker(){
 }
 
 void OffloadingWorker::run(StateInfo state_info){
+    if(~this->is_init){
+        this->timer   = clock();
+        this->is_init = true;
+    }
     cout << "OffloadingWorker is running" << endl;
-//    switch (area) {
-//        case 1:
-//            servo_msg.x = 1;
-//            break;
-//        case 2:
-//            servo_msg.y = 1;
-//            break;
-//        case 3:
-//            servo_msg.z = 1;
-//            break;
-//    }
-//    servo_pub.publish(servo_msg);
+    switch (area) {
+        case 1: 
+            servo_msg.x = 1;
+            break;
+        case 2: 
+            servo_msg.y = 1;
+            break;
+        case 3: 
+            servo_msg.z = 1;
+            break;
+    }
+    servo_pub.publish(servo_msg);
     return;
 }
 
 bool OffloadingWorker::is_finished(){
-    cout << "OffloadingWorker is finished" << endl;
-    return true;
+    if((clock() - this->timer)/(float)CLOCKS_PER_SEC >= 3.0){
+        cout << "OffloadingWorker is finished" << endl;
+        return true;
+    }
+    return false;
 }
 
 #endif

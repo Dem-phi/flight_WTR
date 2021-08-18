@@ -87,7 +87,6 @@ void FSM::loop(const ros::TimerEvent &){
             break;
     }
 
-    servo_load_pub.publish(load_msg);
     // Emergency land
     if(state_info.emergency_land < 1100 ){
         this->emergency_land_worker->run(this->state_info);
@@ -160,13 +159,8 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 break;
             }
             case sun::OFFLOADING:{
-                int servo1 = va_arg(arg_ptr, int);
-                int servo2 = va_arg(arg_ptr, int);
-                int servo3 = va_arg(arg_ptr, int);
-                this->load_msg.x = servo1;
-                this->load_msg.y = servo2;
-                this->load_msg.z = servo3;
-                OffloadingWorker* tmp_worker = new OffloadingWorker(this->nh);
+                int area = va_arg(arg_ptr, int);
+                OffloadingWorker* tmp_worker = new OffloadingWorker(this->nh， area);
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }

@@ -18,7 +18,7 @@ int main(int argc, char** argv){
     );*/
     FSMachine.build_ScheduleTable(
         sun::TAKEOFF,       1.0,
-        sun::POSITION,      sun::GOAL_H,
+        sun::LANDING,
         sun::END
     );
     FSMachine.set_timer();
