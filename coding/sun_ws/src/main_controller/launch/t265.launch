@@ -7,7 +7,8 @@
 
     <rosparam   command="load" file="$(find main_controller)/config/config.yaml"/>
     
-    <node pkg="main_controller" type="main_fsm_node" name="main_fsm_node" output="screen">
+    <node pkg="main_controller" type="demo" name="demo" output="screen">
+<!--        <remap from="/camera/odom/sample" to="/mavros/vision_pose/pose"/>-->
      </node>
 
     <node pkg="main_controller" type="rs_remap" name="rs_remap" output="screen">

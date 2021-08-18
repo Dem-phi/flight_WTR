@@ -48,6 +48,7 @@ FSM::FSM(ros::NodeHandle &nh){
     this->sub_rc = nh.subscribe("/mavros/rc/in", 10, &FSM::RCCallback, this);
     this->sub_position = nh.subscribe("/mavros/vision_pose/pose", 10, &FSM::PositionCallback, this);
     this->servo_load_pub = nh.advertise<geometry_msgs::Vector3>("/sun/servo_ctl", 10);
+    this->state_info.emergency_land = 100000;
 }
 
 FSM::~FSM(){
@@ -160,7 +161,7 @@ void FSM::build_ScheduleTable(int Schedule, ...){
             }
             case sun::OFFLOADING:{
                 int area = va_arg(arg_ptr, int);
-                OffloadingWorker* tmp_worker = new OffloadingWorker(this->nh， area);
+                OffloadingWorker* tmp_worker = new OffloadingWorker(this->nh,area);
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }

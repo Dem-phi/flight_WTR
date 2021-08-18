@@ -2,6 +2,7 @@
 #define _COMMON_PARAMETERS_
 
 #include <eigen3/Eigen/Dense>
+#include <Fisheye.h>
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <geometry_msgs/TwistStamped.h>
@@ -33,7 +34,7 @@ namespace sun{
     Vector3f MIN_PID_PARAMS = Vector3f(20, 4, 0);
 
 // max convergence counter
-    int MAX_CONVERGENCE_COUNTER = 300;
+    int MAX_CONVERGENCE_COUNTER = 100;
 
 // Multi-level PID params
     Vector3f MULTILEVEL_PID_PARAMS_LEVEL_1 = Vector3f(6, 1, 0.2);

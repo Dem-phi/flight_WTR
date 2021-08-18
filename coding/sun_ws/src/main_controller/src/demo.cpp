@@ -17,8 +17,7 @@ int main(int argc, char** argv){
         sun::END
     );*/
     FSMachine.build_ScheduleTable(
-        sun::TAKEOFF,       1.0,
-        sun::LANDING,
+        sun::MANUAL,
         sun::END
     );
     FSMachine.set_timer();
@@ -30,3 +29,18 @@ int main(int argc, char** argv){
     ros::waitForShutdown();
     return 0;
 }
+
+/*
+int main(int argc, char **argv){
+    cv::Mat maps[2];
+    cv::Mat src, dst;
+    cv::VideoCapture ssss(0);
+    modify(maps);
+    while(ssss.isOpened()){
+        ssss.read(src);
+        cv::remap(src, dst, maps[0], maps[1], INTER_LINEAR);
+        imshow("front", src);
+        imshow("after", dst);
+        waitKey(1);
+    }
+}*/

@@ -46,7 +46,7 @@ void ManualWorker::run(StateInfo state_info){
 }
 
 bool ManualWorker::is_finished(){
-    cout << "ManualWorker is finished" << endl;
+//    cout << "ManualWorker is finished" << endl;
     return false;
 }
 
