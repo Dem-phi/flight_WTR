@@ -19,6 +19,8 @@ typedef struct StateInfo{
     bool armed;                         // is unlocked
     bool gogogo;                        // use the button of Raspberry Pi to control UAV for auto takeoff
     float height;                       // height data from laser
+    int loading;                        // use rc SD channel to load cylinder
+    int load_angle;                     // use rc V1 to decide the angle of each servo
     int emergency_land;                 // if needs emergency land
     int manual_takeoff;                 // use Manual Control for safety
     string mode;                        // flight mode, OFFBOARD eg.

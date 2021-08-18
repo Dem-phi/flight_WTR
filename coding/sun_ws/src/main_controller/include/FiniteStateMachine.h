@@ -12,11 +12,14 @@ private:
     ros::Timer FSM_timer;
     // subscriber
     ros::Subscriber sub_state, sub_vel, sub_rc, sub_position;
+    ros::Publisher servo_load_pub;
 
 public:
     ros::NodeHandle nh;
     vector<StateWorker*> Workers;
     int flow = 0;
+    int if_load = 0;
+    geometry_msgs::Vector3 load_msg;
     StateInfo state_info;
 
     void loop(const ros::TimerEvent &);
@@ -44,6 +47,7 @@ FSM::FSM(ros::NodeHandle &nh){
     this->sub_vel = nh.subscribe("/mavros/local_position/velocity", 10, &FSM::VelocityCallback, this);
     this->sub_rc = nh.subscribe("/mavros/rc/in", 10, &FSM::RCCallback, this);
     this->sub_position = nh.subscribe("/mavros/vision_pose/pose", 10, &FSM::PositionCallback, this);
+    this->servo_load_pub = nh.advertise<geometry_msgs::Vector3>("/sun/servo_ctl", 10);
 }
 
 FSM::~FSM(){
@@ -61,6 +65,29 @@ void FSM::set_timer(){
 
 // main loop func, where the selected worker works
 void FSM::loop(const ros::TimerEvent &){
+    // load cylinder before takeoff
+    if(state_info.loading > 1100){
+        if_load++;
+    }
+    switch (if_load) {
+        case 1:
+            load_msg.x = state_info.load_angle;
+            servo_load_pub.publish(load_msg);
+            return;
+        case 2:
+            load_msg.y = state_info.load_angle;
+            servo_load_pub.publish(load_msg);
+            return;
+        case 3:
+            load_msg.z = state_info.load_angle;
+            servo_load_pub.publish(load_msg);
+            return;
+        default:
+            if_load = 0;
+            break;
+    }
+
+    servo_load_pub.publish(load_msg);
     // Emergency land
     if(state_info.emergency_land < 1100 ){
         this->emergency_land_worker->run(this->state_info);
@@ -133,8 +160,13 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 break;
             }
             case sun::OFFLOADING:{
-                int area = va_arg(arg_ptr, int);
-                OffloadingWorker* tmp_worker = new OffloadingWorker(this->nh, area);
+                int servo1 = va_arg(arg_ptr, int);
+                int servo2 = va_arg(arg_ptr, int);
+                int servo3 = va_arg(arg_ptr, int);
+                this->load_msg.x = servo1;
+                this->load_msg.y = servo2;
+                this->load_msg.z = servo3;
+                OffloadingWorker* tmp_worker = new OffloadingWorker(this->nh);
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }
@@ -191,6 +223,9 @@ void FSM::VelocityCallback(const geometry_msgs::TwistStampedConstPtr &msg){
 void FSM::RCCallback(const mavros_msgs::RCInConstPtr &msg){
     this->state_info.emergency_land = msg->channels[6];
     this->state_info.manual_takeoff = msg->channels[5];
+    this->state_info.loading = msg->channels[7];
+    this->state_info.load_angle = int((msg->channels[8]-1095)/838 * 180); // limit to [0, 180]
+
     //limit x,y velocity to [-1, 1]
     this->state_info.vel_info.x = (msg->channels[1]-sun::MID_PITCH)
             /((sun::MAX_PITCH-sun::MIN_PITCH)/2);
