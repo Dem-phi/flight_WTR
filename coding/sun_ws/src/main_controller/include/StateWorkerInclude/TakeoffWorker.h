@@ -83,16 +83,16 @@ void TakeoffWorker::run(StateInfo state_info){
 
     //Maunal control
     if(state_info.manual_takeoff < 1500){
-        if(~this->is_init){
+        ROS_INFO("Takeoff!!!!");
+        if(!this->is_init){
             this->takeoff_pose.pose = state_info.cur_pose;
-            this->takeoff_pose.pose.position.z = this->expected_height;
+            this->takeoff_pose.pose.position.z += this->expected_height;
             this->is_init = true;
         }
         /*
          * position control of takeoff mode
          */
         takeoff_pose.header.stamp = ros::Time::now();
-        takeoff_pose.pose = state_info.cur_pose;
         pub_pose.publish(takeoff_pose);
         if( abs(this->takeoff_pose.pose.position.x - state_info.cur_pose.position.x) < sun::POSITION_TOLERANCE_X &&
             abs(this->takeoff_pose.pose.position.y - state_info.cur_pose.position.y) < sun::POSITION_TOLERANCE_Y &&

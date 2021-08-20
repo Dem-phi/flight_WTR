@@ -29,9 +29,15 @@ PositionWorker::PositionWorker(ros::NodeHandle &nh, double x, double y, double z
     this->nh = nh;
     this->pub_goal_pose = nh.advertise<geometry_msgs::PoseStamped>
             ("/mavros/setpoint_position/local", 10);
+    if(abs(x)>5 || abs(y)>5 || abs(z)>3){
+        x = 0.0;
+        y = 0.0;
+        z = 0.1;
+    }
     this->goal_pose.pose.position.x = x;
     this->goal_pose.pose.position.y = y;
     this->goal_pose.pose.position.z = z;
+
     return;    
 }
 
@@ -39,7 +45,9 @@ PositionWorker::~PositionWorker(){
 }
 
 void PositionWorker::run(StateInfo state_info){
+    ROS_INFO("Position!!!!!");
     goal_pose.header.stamp = ros::Time::now();
+    goal_pose.pose.orientation = state_info.cur_pose.orientation;
     this->pub_goal_pose.publish(this->goal_pose);
     if( abs(this->goal_pose.pose.position.x - state_info.cur_pose.position.x) < sun::POSITION_TOLERANCE_X &&
         abs(this->goal_pose.pose.position.y - state_info.cur_pose.position.y) < sun::POSITION_TOLERANCE_Y &&

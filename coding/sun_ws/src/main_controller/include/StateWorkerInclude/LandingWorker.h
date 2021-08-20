@@ -39,15 +39,17 @@ LandingWorker::~LandingWorker(){
 }
 
 void LandingWorker::run(StateInfo state_info){
+    ROS_INFO("Landing!!!!!!!!!!");
     this->pub_vel.publish(this->msg_vel);
-    if(state_info.armed == false && state_info.mode == "LAND"){
-        this->is_working = false;
-    }
+//    if(state_info.armed == false && state_info.mode == "LAND"){
+//        this->is_working = false;
+//    }
+
     return;
 }
 
 bool LandingWorker::is_finished(){
-    return ~is_working;
+    return !is_working;
 }
 
 #endif

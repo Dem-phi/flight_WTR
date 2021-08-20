@@ -30,7 +30,7 @@ OffloadingWorker::~OffloadingWorker(){
 }
 
 void OffloadingWorker::run(StateInfo state_info){
-    if(~this->is_init){
+    if(!this->is_init){
         this->timer   = clock();
         this->is_init = true;
     }
