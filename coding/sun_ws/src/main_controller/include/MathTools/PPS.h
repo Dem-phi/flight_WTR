@@ -12,11 +12,11 @@ using namespace Eigen;
 /* 
 @brief Particle-Pair Search Method
 
-@param src; input image
-@param BinaryThreshold; default 150
-@param resize_length; After resizing, the longest side of the image will be shrink to this size. Default 500
-@param ParticlePair_num; The number of the Particle Pair. Default 40
-@param max_iter; max iteration. Default 10
+@param {cv::Mat} src; input image
+@param {int} BinaryThreshold; default 150
+@param {int} resize_length; After resizing, the longest side of the image will be shrink to this size. Default 500
+@param {int} ParticlePair_num; The number of the Particle Pair. Default 40
+@param {int} max_iter; max iteration. Default 10
 
 */
 class PPS{

@@ -15,6 +15,8 @@
 using namespace std;
 using namespace Eigen;
 
+#define ANGLE_TOLERANCE 60
+
 /* 
 @brief Poly-filter searching method to locate the center of a rectangle
 @param none
@@ -107,8 +109,8 @@ void PFS::rectangle_detect(cv::Mat src){
         tmp_cos = cosine(poly[3], poly[2], poly[0]);
         if( tmp_cos > max_cosine){ max_cosine = tmp_cos; }
         cout << max_cosine << endl;
-        cout << cos(60*2.0*CV_PI/360.0) << endl;
-        if(max_cosine < cos(60*2.0*CV_PI/360.0) && sqrt(max((poly[0]-poly[1]).dot(poly[0]-poly[1]), (poly[1]-poly[2]).dot(poly[1]-poly[2]))) < 0.95*max(src.cols, src.rows)){
+        cout << cos(ANGLE_TOLERANCE*2.0*CV_PI/360.0) << endl;
+        if(max_cosine < cos(ANGLE_TOLERANCE*2.0*CV_PI/360.0) && sqrt(max((poly[0]-poly[1]).dot(poly[0]-poly[1]), (poly[1]-poly[2]).dot(poly[1]-poly[2]))) < 0.95*max(src.cols, src.rows)){
             Rect.push_back(poly);
             this->centers.push_back(Vector2f(
                 (poly[0].x + poly[1].x + poly[2].x + poly[3].x)/4.0,
