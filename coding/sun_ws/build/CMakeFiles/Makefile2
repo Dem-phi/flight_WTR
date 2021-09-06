@@ -690,6 +690,7 @@ clean: realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_des
 # Directory level rules for directory main_controller
 
 # Convenience name for "all" pass in the directory.
+main_controller/all: main_controller/CMakeFiles/tmp.dir/all
 main_controller/all: main_controller/CMakeFiles/demo.dir/all
 main_controller/all: main_controller/CMakeFiles/circle.dir/all
 main_controller/all: main_controller/CMakeFiles/rs_remap.dir/all
@@ -698,6 +699,7 @@ main_controller/all: main_controller/CMakeFiles/show_status.dir/all
 .PHONY : main_controller/all
 
 # Convenience name for "clean" pass in the directory.
+main_controller/clean: main_controller/CMakeFiles/tmp.dir/clean
 main_controller/clean: main_controller/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/clean
 main_controller/clean: main_controller/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/clean
 main_controller/clean: main_controller/CMakeFiles/demo.dir/clean
@@ -774,6 +776,43 @@ main_controller/clean: main_controller/CMakeFiles/uuid_msgs_generate_messages_eu
 main_controller/preinstall:
 
 .PHONY : main_controller/preinstall
+
+#=============================================================================
+# Target rules for target main_controller/CMakeFiles/tmp.dir
+
+# All Build rule for target.
+main_controller/CMakeFiles/tmp.dir/all:
+	$(MAKE) -f main_controller/CMakeFiles/tmp.dir/build.make main_controller/CMakeFiles/tmp.dir/depend
+	$(MAKE) -f main_controller/CMakeFiles/tmp.dir/build.make main_controller/CMakeFiles/tmp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/dji/sun_ws/build/CMakeFiles --progress-num=36,37 "Built target tmp"
+.PHONY : main_controller/CMakeFiles/tmp.dir/all
+
+# Include target in all.
+all: main_controller/CMakeFiles/tmp.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+main_controller/CMakeFiles/tmp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dji/sun_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 main_controller/CMakeFiles/tmp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dji/sun_ws/build/CMakeFiles 0
+.PHONY : main_controller/CMakeFiles/tmp.dir/rule
+
+# Convenience name for target.
+tmp: main_controller/CMakeFiles/tmp.dir/rule
+
+.PHONY : tmp
+
+# clean rule for target.
+main_controller/CMakeFiles/tmp.dir/clean:
+	$(MAKE) -f main_controller/CMakeFiles/tmp.dir/build.make main_controller/CMakeFiles/tmp.dir/clean
+.PHONY : main_controller/CMakeFiles/tmp.dir/clean
+
+# clean rule for target.
+clean: main_controller/CMakeFiles/tmp.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Target rules for target main_controller/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir

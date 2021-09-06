@@ -4,7 +4,10 @@
           "name": "Linux",
           "includePath": [
               "${workspaceFolder}/**",
-              "/opt/ros/melodic/include"
+              "/opt/ros/melodic/include",
+              "/home/dji/GitHub/pico-sdk/src/common/",
+              "/home/dji/GitHub/pico-sdk/src/host",
+              "/home/dji/GitHub/pico-sdk/src/rp2_common"
           ],
           "defines": [],
           "compilerPath": "/usr/bin/gcc",

@@ -1,10 +1,10 @@
 #include <FiniteStateMachine.h>
-
+#include "time.h"
 
 int main(int argc, char** argv){
     ros::init(argc, argv, "demo");
     ros::NodeHandle nh;
-    
+    sleep(5);
     FSM FSMachine(nh);
 /*    FSMachine.build_ScheduleTable(
         sun::TAKEOFF,       1.0,
@@ -17,7 +17,7 @@ int main(int argc, char** argv){
         sun::END
     );*/
     FSMachine.build_ScheduleTable(
-        sun::MANUAL,
+            sun::TAKEOFF,       0.5,
         sun::END
     );
     FSMachine.set_timer();

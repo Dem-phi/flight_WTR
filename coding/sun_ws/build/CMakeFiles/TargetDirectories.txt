@@ -52,6 +52,7 @@
 /home/dji/sun_ws/build/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir
 /home/dji/sun_ws/build/main_controller/CMakeFiles/install/local.dir
 /home/dji/sun_ws/build/main_controller/CMakeFiles/edit_cache.dir
+/home/dji/sun_ws/build/main_controller/CMakeFiles/tmp.dir
 /home/dji/sun_ws/build/main_controller/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir
 /home/dji/sun_ws/build/main_controller/CMakeFiles/tf2_msgs_generate_messages_lisp.dir
 /home/dji/sun_ws/build/main_controller/CMakeFiles/demo.dir

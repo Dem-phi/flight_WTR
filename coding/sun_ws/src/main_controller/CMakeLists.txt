@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 2.8.3)
+# cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.10)
 project(main_controller)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
@@ -70,4 +71,11 @@ target_link_libraries(demo
         ${THIRD_PARTY_LIBS}
         ${catkin_LIBRARIES}
 )
+add_executable(tmp
+        src/tmp.cpp)
+target_link_libraries(tmp
+        ${THIRD_PARTY_LIBS}
+        ${catkin_LIBRARIES}
+)
+
 

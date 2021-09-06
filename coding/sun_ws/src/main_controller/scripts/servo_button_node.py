@@ -9,7 +9,7 @@ def init_node():
     servo_sub = rospy.Subscriber("/sun/servo_ctl", Vector3, servoCallback)
     pub = rospy.Publisher("/sun/gogogo", Bool, queue_size=10)
     rospy.init_node("Raspberry_Pi", anonymous=True)
-    rate = rospy.Rate(20) #20HZ
+    rate = rospy.Rate(50) #50HZ
     covlowvel.init("/dev/ttyACM1", "dji")
     while not rospy.is_shutdown():
         if(covlowvel.getButton()):

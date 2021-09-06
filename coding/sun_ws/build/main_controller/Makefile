@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+main_controller/CMakeFiles/tmp.dir/rule:
+	cd /home/dji/sun_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_controller/CMakeFiles/tmp.dir/rule
+.PHONY : main_controller/CMakeFiles/tmp.dir/rule
+
+# Convenience name for target.
+tmp: main_controller/CMakeFiles/tmp.dir/rule
+
+.PHONY : tmp
+
+# fast build rule for target.
+tmp/fast:
+	cd /home/dji/sun_ws/build && $(MAKE) -f main_controller/CMakeFiles/tmp.dir/build.make main_controller/CMakeFiles/tmp.dir/build
+.PHONY : tmp/fast
+
+# Convenience name for target.
 main_controller/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/dji/sun_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_controller/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
 .PHONY : main_controller/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
@@ -1310,6 +1325,33 @@ src/demo.cpp.s:
 	cd /home/dji/sun_ws/build && $(MAKE) -f main_controller/CMakeFiles/demo.dir/build.make main_controller/CMakeFiles/demo.dir/src/demo.cpp.s
 .PHONY : src/demo.cpp.s
 
+src/tmp.o: src/tmp.cpp.o
+
+.PHONY : src/tmp.o
+
+# target to build an object file
+src/tmp.cpp.o:
+	cd /home/dji/sun_ws/build && $(MAKE) -f main_controller/CMakeFiles/tmp.dir/build.make main_controller/CMakeFiles/tmp.dir/src/tmp.cpp.o
+.PHONY : src/tmp.cpp.o
+
+src/tmp.i: src/tmp.cpp.i
+
+.PHONY : src/tmp.i
+
+# target to preprocess a source file
+src/tmp.cpp.i:
+	cd /home/dji/sun_ws/build && $(MAKE) -f main_controller/CMakeFiles/tmp.dir/build.make main_controller/CMakeFiles/tmp.dir/src/tmp.cpp.i
+.PHONY : src/tmp.cpp.i
+
+src/tmp.s: src/tmp.cpp.s
+
+.PHONY : src/tmp.s
+
+# target to generate assembly for a file
+src/tmp.cpp.s:
+	cd /home/dji/sun_ws/build && $(MAKE) -f main_controller/CMakeFiles/tmp.dir/build.make main_controller/CMakeFiles/tmp.dir/src/tmp.cpp.s
+.PHONY : src/tmp.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1318,6 +1360,7 @@ help:
 	@echo "... depend"
 	@echo "... install/local"
 	@echo "... edit_cache"
+	@echo "... tmp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... demo"
@@ -1404,6 +1447,9 @@ help:
 	@echo "... src/demo.o"
 	@echo "... src/demo.i"
 	@echo "... src/demo.s"
+	@echo "... src/tmp.o"
+	@echo "... src/tmp.i"
+	@echo "... src/tmp.s"
 .PHONY : help
 
 

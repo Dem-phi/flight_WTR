@@ -23,7 +23,7 @@ public:
     HoughCircle* model_HOUGH = new HoughCircle();
     PFS* model_PFS = new PFS();
 
-    float speed = 0.4;
+    float speed = 0.1;
     float max_sec;
     int figure_type, convergence_counter = 0, max_counter = 30;
     time_t timer = 0;
@@ -48,15 +48,16 @@ DetectingWorker::DetectingWorker(ros::NodeHandle &nh, float direction_vector_x, 
     this->msg_vel.twist.linear.z = 0;
     this->max_sec = max_sec;
     this->figure_type = figure_type;
-    this->camera = cv::VideoCapture(0);
 }
 
 DetectingWorker::~DetectingWorker(){
 }
 
 void DetectingWorker::run(StateInfo state_info){
+    ROS_INFO("Detecting!");
     if(this->timer == 0){
         timer = clock();
+        this->camera = cv::VideoCapture(0);
     }
     if((clock()-this->timer)/(float)CLOCKS_PER_SEC > this->max_sec){
         this->msg_vel.twist.linear.x = 0;

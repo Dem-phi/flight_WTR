@@ -69,7 +69,9 @@
         "string": "cpp",
         "string_view": "cpp",
         "core": "cpp",
-        "iterativelinearsolvers": "cpp"
+        "iterativelinearsolvers": "cpp",
+        "stdio.h": "c",
+        "uart.h": "c"
     },
     "python.analysis.extraPaths": [
         "/opt/ros/melodic/lib/python2.7/dist-packages"

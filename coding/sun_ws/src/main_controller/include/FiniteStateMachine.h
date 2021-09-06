@@ -13,6 +13,7 @@ private:
     // subscriber
     ros::Subscriber sub_state, sub_vel, sub_rc, sub_position;
     ros::Publisher servo_load_pub;
+    int init_update_flag = 0;
 
 public:
     ros::NodeHandle nh;
@@ -66,7 +67,11 @@ void FSM::set_timer(){
 
 // main loop func, where the selected worker works
 void FSM::loop(const ros::TimerEvent &){
-    // load cylinder before takeoff
+    if(this->init_update_flag < 50){
+        this->init_update_flag++;
+        return;
+    }
+/*    // load cylinder before takeoff
     if(state_info.loading > 1100){
         if_load++;
     }
@@ -86,7 +91,7 @@ void FSM::loop(const ros::TimerEvent &){
         default:
             if_load = 0;
             break;
-    }
+    }*/
 
     // Emergency land
     if(state_info.emergency_land < 1100 ){
