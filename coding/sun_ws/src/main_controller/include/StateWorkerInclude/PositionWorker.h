@@ -14,6 +14,8 @@ public:
     ros::NodeHandle nh;
     ros::Publisher pub_goal_pose;
     geometry_msgs::PoseStamped goal_pose;
+    bool ignore_xy = false;
+    bool is_init = false;
 
     int convergence_counter = 0;
 
@@ -25,6 +27,9 @@ public:
 };
 
 PositionWorker::PositionWorker(ros::NodeHandle &nh, double x, double y, double z){
+    if(abs(x - 1000) < 10 || abs(y-1000) < 10){
+        this->ignore_xy = true;
+    }
     this->goal_pose.header.frame_id = "body";
     this->nh = nh;
     this->pub_goal_pose = nh.advertise<geometry_msgs::PoseStamped>
@@ -46,8 +51,15 @@ PositionWorker::~PositionWorker(){
 
 void PositionWorker::run(StateInfo state_info){
     ROS_INFO("Position!!!!!");
+    if(!this->is_init){
+        goal_pose.pose.orientation = state_info.init_quater;
+        this->is_init = true;
+    }
     goal_pose.header.stamp = ros::Time::now();
-    goal_pose.pose.orientation = state_info.cur_pose.orientation;
+    if(this->ignore_xy){
+        goal_pose.pose.position.x = state_info.cur_pose.position.x;
+        goal_pose.pose.position.y = state_info.cur_pose.position.y;
+    }
     this->pub_goal_pose.publish(this->goal_pose);
     if( abs(this->goal_pose.pose.position.x - state_info.cur_pose.position.x) < sun::POSITION_TOLERANCE_X &&
         abs(this->goal_pose.pose.position.y - state_info.cur_pose.position.y) < sun::POSITION_TOLERANCE_Y &&

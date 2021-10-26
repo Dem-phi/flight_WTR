@@ -120,7 +120,7 @@ void DockingWorker::run(StateInfo state_info){
                 model_MMCS.discard_noise(sun::V_MIN_LEVEL_3, sun::V_MAX_LEVEL_3);
                 break;
         }
-        model_MMCS.discard_noise(sun::V_MIN_LEVEL_1, sun::V_MAX_LEVEL_1);
+        // model_MMCS.discard_noise(sun::V_MIN_LEVEL_1, sun::V_MAX_LEVEL_1);
         model_MMCS.gradient_descend(0.01, 1000);
 
         this->Err = -(img_center+bias) + model_MMCS.center;

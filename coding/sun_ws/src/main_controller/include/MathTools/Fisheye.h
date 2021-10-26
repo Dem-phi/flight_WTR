@@ -26,6 +26,7 @@ void modify(cv::Mat* maps){
 
     //摄像机内参数
     intrinsic_matrix = (Mat_<double>(3, 3) << 197.1264832685997, 0, 313.4094670802276, 0, 197.2824909727301, 247.5478545068283, 0, 0, 1);
+    
     //镜头畸变参数
     cv::Vec4d distortion_coeffs;
     distortion_coeffs[0] = 0.624356;

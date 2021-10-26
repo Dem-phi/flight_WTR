@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11 -O3 -g
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"main_controller\"
 
-CXX_INCLUDES = -I/home/dji/sun_ws/src/main_controller/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv -I/home/dji/sun_ws/src/main_controller/include/StateWorkerInclude -I/home/dji/sun_ws/src/main_controller/include/MathTools -I/home/dji/sun_ws/src/main_controller/include/MsgJar -I/home/dji/sun_ws/src/main_controller/include/Reference -isystem /usr/local/include/opencv 
+CXX_INCLUDES = -I/home/demphi/sun_ws/src/main_controller/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv -I/home/demphi/sun_ws/src/main_controller/include/StateWorkerInclude -I/home/demphi/sun_ws/src/main_controller/include/MathTools -I/home/demphi/sun_ws/src/main_controller/include/MsgJar -I/home/demphi/sun_ws/src/main_controller/include/Reference -isystem /usr/local/include/opencv4 
 

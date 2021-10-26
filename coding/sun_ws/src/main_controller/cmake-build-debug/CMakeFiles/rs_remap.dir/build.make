@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/dji/apps/clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/dji/apps/clion/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dji/sun_ws/src/main_controller
+CMAKE_SOURCE_DIR = /home/demphi/sun_ws/src/main_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dji/sun_ws/src/main_controller/cmake-build-debug
+CMAKE_BINARY_DIR = /home/demphi/sun_ws/src/main_controller/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rs_remap.dir/depend.make
@@ -79,16 +79,16 @@ include CMakeFiles/rs_remap.dir/flags.make
 
 CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.o: CMakeFiles/rs_remap.dir/flags.make
 CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.o: ../App/realsenseRemap.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.o -c /home/dji/sun_ws/src/main_controller/App/realsenseRemap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.o -c /home/demphi/sun_ws/src/main_controller/App/realsenseRemap.cpp
 
 CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dji/sun_ws/src/main_controller/App/realsenseRemap.cpp > CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/demphi/sun_ws/src/main_controller/App/realsenseRemap.cpp > CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.i
 
 CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dji/sun_ws/src/main_controller/App/realsenseRemap.cpp -o CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/demphi/sun_ws/src/main_controller/App/realsenseRemap.cpp -o CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.s
 
 # Object files for target rs_remap
 rs_remap_OBJECTS = \
@@ -99,6 +99,7 @@ rs_remap_EXTERNAL_OBJECTS =
 
 devel/lib/main_controller/rs_remap: CMakeFiles/rs_remap.dir/App/realsenseRemap.cpp.o
 devel/lib/main_controller/rs_remap: CMakeFiles/rs_remap.dir/build.make
+devel/lib/main_controller/rs_remap: /opt/ros/melodic/lib/libserial.so
 devel/lib/main_controller/rs_remap: /opt/ros/melodic/lib/libcv_bridge.so
 devel/lib/main_controller/rs_remap: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
 devel/lib/main_controller/rs_remap: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
@@ -126,26 +127,22 @@ devel/lib/main_controller/rs_remap: /usr/lib/x86_64-linux-gnu/libboost_date_time
 devel/lib/main_controller/rs_remap: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 devel/lib/main_controller/rs_remap: /usr/lib/x86_64-linux-gnu/libpthread.so
 devel/lib/main_controller/rs_remap: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_dnn.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_ml.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_objdetect.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_shape.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_stitching.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_superres.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_videostab.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_viz.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_calib3d.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_features2d.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_flann.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_highgui.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_photo.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_video.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_videoio.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_imgcodecs.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_imgproc.so.3.4.1
-devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_core.so.3.4.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_highgui.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_ml.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_objdetect.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_photo.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_stitching.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_video.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_videoio.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_imgcodecs.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_calib3d.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_dnn.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_features2d.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_flann.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_imgproc.so.4.5.1
+devel/lib/main_controller/rs_remap: /usr/local/lib/libopencv_core.so.4.5.1
 devel/lib/main_controller/rs_remap: CMakeFiles/rs_remap.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable devel/lib/main_controller/rs_remap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable devel/lib/main_controller/rs_remap"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rs_remap.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -158,6 +155,6 @@ CMakeFiles/rs_remap.dir/clean:
 .PHONY : CMakeFiles/rs_remap.dir/clean
 
 CMakeFiles/rs_remap.dir/depend:
-	cd /home/dji/sun_ws/src/main_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dji/sun_ws/src/main_controller /home/dji/sun_ws/src/main_controller /home/dji/sun_ws/src/main_controller/cmake-build-debug /home/dji/sun_ws/src/main_controller/cmake-build-debug /home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/rs_remap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/demphi/sun_ws/src/main_controller/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/demphi/sun_ws/src/main_controller /home/demphi/sun_ws/src/main_controller /home/demphi/sun_ws/src/main_controller/cmake-build-debug /home/demphi/sun_ws/src/main_controller/cmake-build-debug /home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/rs_remap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rs_remap.dir/depend
 

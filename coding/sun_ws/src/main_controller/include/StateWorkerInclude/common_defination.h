@@ -10,15 +10,17 @@ namespace sun{
 enum STATE_TYPE{
     TAKEOFF             =   0,
     DETECTING           =   1,
-    DOCKING             =   2,
-    LANDING             =   3,
-    OFFLOADING          =   4,
-    ADAPTIVE_LEARNING   =   5,
-    MANUAL              =   6,
-    WAITING             =   7,
-    HEIGHTSERV          =   8,
-    POSITION            =   9,
-    END                 =   10,
+    DETECTPOSE,          
+    DOCKING,             
+    LANDING,       
+    OFFLOADING,   
+    ADAPTIVE_LEARNING,  
+    MANUAL,            
+    WAITING,         
+    HEIGHTSERV,
+    POSITION,
+    FIRE,
+    END,
 };
 
 // Docking Mode type

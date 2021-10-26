@@ -4,6 +4,7 @@
 
 #include <stdarg.h>
 #include <workers_common_include.h>
+#include <rs_remap.h>
 #define _MAX_ 11111
 
 class FSM{
@@ -11,7 +12,7 @@ private:
     // main loop function runs in a specific frequency set by timer
     ros::Timer FSM_timer;
     // subscriber
-    ros::Subscriber sub_state, sub_vel, sub_rc, sub_position;
+    ros::Subscriber sub_state, sub_vel, sub_rc, sub_position, sub_imu, sub_gogogo, sub_t265_h;
     ros::Publisher servo_load_pub;
     int init_update_flag = 0;
 
@@ -19,9 +20,13 @@ public:
     ros::NodeHandle nh;
     vector<StateWorker*> Workers;
     int flow = 0;
+    bool is_imu_init = false;
     int if_load = 0;
     geometry_msgs::Vector3 load_msg;
     StateInfo state_info;
+    rs_remap* remaper;
+
+    Quaternionf q_init, q_now;
 
     void loop(const ros::TimerEvent &);
     void build_ScheduleTable(int Schedule, ...);
@@ -30,6 +35,7 @@ public:
     void RCCallback(const mavros_msgs::RCInConstPtr &msg);
     void PositionCallback(const geometry_msgs::PoseStampedConstPtr &msg);
     void ButtonCallback(const std_msgs::BoolConstPtr &msg);
+    void ImuCallback(const sensor_msgs::ImuConstPtr &msg);
     void set_timer();
 
     LandingWorker* emergency_land_worker; 
@@ -45,11 +51,14 @@ FSM::FSM(ros::NodeHandle &nh){
     this->nh = nh;
     this->emergency_land_worker = new LandingWorker(this->nh);
     this->sub_state = nh.subscribe("/mavros/state", 10, &FSM::StateCallback, this);
+    this->sub_imu = nh.subscribe("/mavros/imu/data", 10, &FSM::ImuCallback, this);
     this->sub_vel = nh.subscribe("/mavros/local_position/velocity", 10, &FSM::VelocityCallback, this);
     this->sub_rc = nh.subscribe("/mavros/rc/in", 10, &FSM::RCCallback, this);
     this->sub_position = nh.subscribe("/mavros/vision_pose/pose", 10, &FSM::PositionCallback, this);
+    this->sub_gogogo = nh.subscribe("/sun/gogogo", 10, &FSM::ButtonCallback, this);
     this->servo_load_pub = nh.advertise<geometry_msgs::Vector3>("/sun/servo_ctl", 10);
     this->state_info.emergency_land = 100000;
+    this->remaper = new rs_remap(nh);
 }
 
 FSM::~FSM(){
@@ -58,6 +67,7 @@ FSM::~FSM(){
         delete each;
     }
     delete this->emergency_land_worker;
+    delete this->remaper;
 }
 
 void FSM::set_timer(){
@@ -67,31 +77,38 @@ void FSM::set_timer(){
 
 // main loop func, where the selected worker works
 void FSM::loop(const ros::TimerEvent &){
+//    cout << state_info.cur_pose.orientation.x << " " <<
+//    state_info.cur_pose.orientation.y << " " <<
+//    state_info.cur_pose.orientation.z << " " <<
+//    state_info.cur_pose.orientation.w <<  endl;
+
+/*
+    if(
+            this->flow == 6  ||
+            this->flow == 12 ||
+	    this->flow == 18 
+            ){ this->remaper->use_t265_height = true; }else{
+        this->remaper->use_t265_height = false;
+    }
+    this->remaper->run(); */
+    /*
+    if(
+	   this->flow == 6 ||
+	   this->flow == 7 ||
+	   this->flow == 8)
+    	   {this->remaper->use_t265_height = true;}
+    else{
+	    this->remaper->use_t265_height = false;
+    }
+    this->remaper->run();
+    */
     if(this->init_update_flag < 50){
         this->init_update_flag++;
+        if(this->init_update_flag == 49){
+            this->state_info.init_quater = this->state_info.cur_pose.orientation;
+        };
         return;
     }
-/*    // load cylinder before takeoff
-    if(state_info.loading > 1100){
-        if_load++;
-    }
-    switch (if_load) {
-        case 1:
-            load_msg.x = state_info.load_angle;
-            servo_load_pub.publish(load_msg);
-            return;
-        case 2:
-            load_msg.y = state_info.load_angle;
-            servo_load_pub.publish(load_msg);
-            return;
-        case 3:
-            load_msg.z = state_info.load_angle;
-            servo_load_pub.publish(load_msg);
-            return;
-        default:
-            if_load = 0;
-            break;
-    }*/
 
     // Emergency land
     if(state_info.emergency_land < 1100 ){
@@ -154,6 +171,12 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }
+            case sun::DETECTPOSE:{
+                int bias = va_arg(arg_ptr, int);
+                DetectPoseWorker* tmp_worker = new DetectPoseWorker(this->nh, bias);
+                this->Workers.push_back((StateWorker*)tmp_worker);
+                break;
+            }
             case sun::LANDING:{
                 LandingWorker* tmp_worker = new LandingWorker(this->nh);
                 this->Workers.push_back((StateWorker*)tmp_worker);
@@ -196,6 +219,15 @@ void FSM::build_ScheduleTable(int Schedule, ...){
                 this->Workers.push_back((StateWorker*)tmp_worker);
                 break;
             }
+            case sun::FIRE:{
+                double x = va_arg(arg_ptr, double);
+                double y = va_arg(arg_ptr, double);
+                double z = va_arg(arg_ptr, double);
+                int area = va_arg(arg_ptr, int);
+                PoseOffloadWorker* tmp_worker = new PoseOffloadWorker(this->nh, x, y, z, area);
+                this->Workers.push_back((StateWorker*)tmp_worker);
+                break;
+            }
             default:
                 ROS_ERROR("Wrong type of Schedule Table!");
                 exit(0);
@@ -213,6 +245,7 @@ void FSM::StateCallback(const mavros_msgs::StateConstPtr &msg){
     this->state_info.mode = msg->mode;
     return;
 }
+
 
 void FSM::VelocityCallback(const geometry_msgs::TwistStampedConstPtr &msg){
     this->state_info.linear = msg->twist.linear;
@@ -239,14 +272,40 @@ void FSM::RCCallback(const mavros_msgs::RCInConstPtr &msg){
 
 void FSM::PositionCallback(const geometry_msgs::PoseStampedConstPtr &msg){
     this->state_info.cur_pose = msg->pose;
+    this->state_info.height = msg->pose.position.z;
     return;
 }
 
-void FSM::ButtonCallback(const std_msgs::BoolConstPtr &msg){
-    this->state_info.gogogo = msg->data;
+void FSM::ImuCallback(const sensor_msgs::ImuConstPtr &msg){
+//    if(!this->is_imu_init){
+//        this->q_init.x() = msg->orientation.x;
+//        this->q_init.y() = msg->orientation.y;
+//        this->q_init.z() = msg->orientation.z;
+//        this->q_init.w() = msg->orientation.w;
+//        this->is_imu_init = true;
+//    }
+//    this->q_now.x() = msg->orientation.x;
+//    this->q_now.y() = msg->orientation.y;
+//    this->q_now.z() = msg->orientation.z;
+//    this->q_now.w() = msg->orientation.w;
+//    Quaternionf q_tmp = q_now*q_init.conjugate();
+//    this->state_info.cur_pose.orientation.x = q_tmp.x();
+//    this->state_info.cur_pose.orientation.y = q_tmp.y();
+//    this->state_info.cur_pose.orientation.z = q_tmp.z();
+//    this->state_info.cur_pose.orientation.w = q_tmp.w();
+
+    this->state_info.cur_pose.orientation.x = msg->orientation.x;
+    this->state_info.cur_pose.orientation.y = msg->orientation.y;
+    this->state_info.cur_pose.orientation.z = msg->orientation.z;
+    this->state_info.cur_pose.orientation.w = msg->orientation.w;
     return;
 }
 
+void FSM::ButtonCallback(const std_msgs::BoolConstPtr &msg) {
+    if (msg->data == true) {
+        this->state_info.gogogo = true;
+    }
 
+}
 
 #endif

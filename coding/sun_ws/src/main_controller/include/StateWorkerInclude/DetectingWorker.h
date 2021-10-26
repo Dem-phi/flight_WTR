@@ -55,6 +55,12 @@ DetectingWorker::~DetectingWorker(){
 
 void DetectingWorker::run(StateInfo state_info){
     ROS_INFO("Detecting!");
+    // check the height then choose a height mode
+    if(state_info.cur_pose.position.z < 0.7){
+        this->model_HOUGH->low_detect = false;
+    }else{
+        this->model_HOUGH->low_detect = true;
+    }
     if(this->timer == 0){
         timer = clock();
         this->camera = cv::VideoCapture(0);

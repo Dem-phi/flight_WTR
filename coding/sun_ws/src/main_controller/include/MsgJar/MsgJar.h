@@ -17,8 +17,10 @@ MsgJar is built to simplify ros_msg/serial_msg/bluetooth_msg and so on.
 typedef struct StateInfo{
     bool connected;                     // is connected
     bool armed;                         // is unlocked
-    bool gogogo;                        // use the button of Raspberry Pi to control UAV for auto takeoff
+    bool gogogo = false;                        // use the button of Raspberry Pi to control UAV for auto takeoff
+    bool use_t265_height = false;
     float height;                       // height data from laser
+
     int loading;                        // use rc SD channel to load cylinder
     int load_angle;                     // use rc V1 to decide the angle of each servo
     int emergency_land;                 // if needs emergency land
@@ -28,6 +30,7 @@ typedef struct StateInfo{
     geometry_msgs::Vector3 angular;     // angular velocity
     geometry_msgs::Vector3 vel_info;    // velocity commend in manual mode 
     geometry_msgs::Pose cur_pose;       // position info provided by t265 vision fusion
+    geometry_msgs::Quaternion init_quater;
 }StateInfo;
 
 

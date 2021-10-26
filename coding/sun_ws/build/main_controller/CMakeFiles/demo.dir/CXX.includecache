@@ -12,22 +12,6 @@ stdarg.h
 workers_common_include.h
 -
 
-/home/dji/sun_ws/src/main_controller/include/MathTools/Fisheye.h
-iostream
--
-opencv2/core/core.hpp
--
-opencv2/highgui/highgui.hpp
--
-opencv2/imgproc/imgproc.hpp
--
-opencv2/core.hpp
--
-opencv2/highgui.hpp
--
-opencv2/imgproc.hpp
--
-
 /home/dji/sun_ws/src/main_controller/include/MathTools/HoughCircle.h
 opencv2/opencv.hpp
 -
@@ -170,6 +154,18 @@ geometry_msgs/PoseStamped.h
 time.h
 -
 
+/home/dji/sun_ws/src/main_controller/include/StateWorkerInclude/DetectPoseWorker.h
+StateWorker.h
+-
+geometry_msgs/PoseStamped.h
+-
+HoughCircle.h
+-
+vector
+-
+eigen3/Eigen/Dense
+-
+
 /home/dji/sun_ws/src/main_controller/include/StateWorkerInclude/DetectingWorker.h
 StateWorker.h
 -
@@ -210,6 +206,10 @@ geometry_msgs/TwistStamped.h
 StateWorker.h
 -
 mavros_msgs/State.h
+-
+mavros_msgs/ExtendedState.h
+-
+time.h
 -
 
 /home/dji/sun_ws/src/main_controller/include/StateWorkerInclude/ManualWorker.h
@@ -267,8 +267,6 @@ StateWorker.h
 /home/dji/sun_ws/src/main_controller/include/StateWorkerInclude/common_parameters.h
 eigen3/Eigen/Dense
 -
-Fisheye.h
--
 iostream
 -
 opencv2/opencv.hpp
@@ -298,6 +296,8 @@ WaitingWorker.h
 HeightServWorker.h
 -
 PositionWorker.h
+-
+DetectPoseWorker.h
 -
 
 /home/dji/sun_ws/src/main_controller/src/demo.cpp
@@ -630,6 +630,24 @@ ros/serialization.h
 ros/builtin_message_traits.h
 -
 ros/message_operations.h
+-
+
+/opt/ros/melodic/include/mavros_msgs/ExtendedState.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
 -
 
 /opt/ros/melodic/include/mavros_msgs/RCIn.h
@@ -2742,10 +2760,6 @@ opencv2/core/vsx_utils.hpp
 
 /usr/local/include/opencv2/core/bufferpool.hpp
 
-/usr/local/include/opencv2/core/core.hpp
-opencv2/core.hpp
-/usr/local/include/opencv2/core/opencv2/core.hpp
-
 /usr/local/include/opencv2/core/core_c.h
 opencv2/core/types_c.h
 /usr/local/include/opencv2/core/opencv2/core/types_c.h
@@ -3494,10 +3508,6 @@ opencv2/videoio.hpp
 opencv2/highgui/highgui_c.h
 /usr/local/include/opencv2/opencv2/highgui/highgui_c.h
 
-/usr/local/include/opencv2/highgui/highgui.hpp
-opencv2/highgui.hpp
-/usr/local/include/opencv2/highgui/opencv2/highgui.hpp
-
 /usr/local/include/opencv2/highgui/highgui_c.h
 opencv2/core/core_c.h
 /usr/local/include/opencv2/highgui/opencv2/core/core_c.h
@@ -3549,10 +3559,6 @@ opencv2/highgui.hpp
 /usr/local/include/opencv2/opencv2/highgui.hpp
 opencv2/imgproc/imgproc_c.h
 /usr/local/include/opencv2/opencv2/imgproc/imgproc_c.h
-
-/usr/local/include/opencv2/imgproc/imgproc.hpp
-opencv2/imgproc.hpp
-/usr/local/include/opencv2/imgproc/opencv2/imgproc.hpp
 
 /usr/local/include/opencv2/imgproc/imgproc_c.h
 opencv2/imgproc/types_c.h

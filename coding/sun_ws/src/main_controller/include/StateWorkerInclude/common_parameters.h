@@ -2,7 +2,6 @@
 #define _COMMON_PARAMETERS_
 
 #include <eigen3/Eigen/Dense>
-#include <Fisheye.h>
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <geometry_msgs/TwistStamped.h>
@@ -48,7 +47,7 @@ namespace sun{
 // camera port
     int camera_port = 0;
 
-// PPS & MMCS parameters
+// PPS & MMCS parameters, ONLY LEVEL1 & LEVEL3 ARE RECOMMENDED
     float V_MIN_LEVEL_1 = 5;
     float V_MAX_LEVEL_1 = 11;
     float V_MIN_LEVEL_2 = 5;
@@ -63,8 +62,8 @@ namespace sun{
     cv::Scalar COLOR_DRAW = cv::Scalar(120, 180, 120, 15);
 
 // position tolerance
-    float POSITION_TOLERANCE_X = 0.08;
-    float POSITION_TOLERANCE_Y = 0.08;
+    float POSITION_TOLERANCE_X = 0.10;
+    float POSITION_TOLERANCE_Y = 0.10;
     float POSITION_TOLERANCE_Z = 0.05;
 
 // position A B C area

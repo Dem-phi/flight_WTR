@@ -21,6 +21,7 @@ public:
     geometry_msgs::PoseStamped takeoff_pose;
     ros::Time last_request;
     bool is_init = false;
+    int count = 0;
 
     virtual void run(StateInfo state_info);
     virtual bool is_finished();
@@ -61,31 +62,35 @@ TakeoffWorker::~TakeoffWorker(){
 
 void TakeoffWorker::run(StateInfo state_info){
     // Auto takeoff
-   /* if(1){
-        if( state_info.mode != "OFFBOARD" &&
-        (ros::Time::now() - last_request > ros::Duration(5.0))){
-        if( set_mode_client.call(offb_set_mode) &&
-            offb_set_mode.response.mode_sent){
-            ROS_INFO("Offboard enabled");
-        }
-        this->last_request = ros::Time::now();
-    }else{
-        if( !state_info.armed &&
-            (ros::Time::now() - last_request > ros::Duration(5.0))){
-            if( arming_client.call(arm_cmd) &&
-                arm_cmd.response.success){
-                ROS_INFO("Vehicle armed");
-            }
-            this->last_request = ros::Time::now();
+    if(state_info.gogogo){
+        ROS_INFO("Ready to fly");
+        // delay 8 seconds
+        if(this->count++ >= 750){
+            if( state_info.mode != "OFFBOARD" &&
+                (ros::Time::now() - last_request > ros::Duration(5.0))){
+                if( set_mode_client.call(offb_set_mode) &&
+                    offb_set_mode.response.mode_sent){
+                    ROS_INFO("Offboard enabled");
+                }
+                this->last_request = ros::Time::now();
+                }else{
+                if( !state_info.armed &&
+                    (ros::Time::now() - last_request > ros::Duration(5.0))){
+                    if( arming_client.call(arm_cmd) &&
+                        arm_cmd.response.success){
+                        ROS_INFO("Vehicle armed");
+                    }
+                    this->last_request = ros::Time::now();
+                }
             }
         }
     }
- */
     //Maunal control
     if(state_info.manual_takeoff < 1500){
         ROS_INFO("Takeoff!!!!");
         if(!this->is_init){
-            this->takeoff_pose.pose = state_info.cur_pose;
+            this->takeoff_pose.pose.position = state_info.cur_pose.position;
+            this->takeoff_pose.pose.orientation = state_info.init_quater;
             this->takeoff_pose.pose.position.z += this->expected_height;
             this->is_init = true;
         }
@@ -102,23 +107,6 @@ void TakeoffWorker::run(StateInfo state_info){
             this->convergence_counter = 0;
         }
     }
-
-
-    /*
-     * velocity control of takeoff mode
-     */
-/*
-    float Err = this->expected_height - state_info.height;
-    if(Err < sun::HEIGHTLOCKING_TOLERANCE){
-        this->convergence_counter ++;
-    }
-    else{
-        this->convergence_counter = 0;
-    }
-    Vector2f input = this->model_PID->run(Vector2f(Err, 0));
-    this->msg_vel.twist.linear.z = input[0];
-    publish_vel(&this->pub_vel, this->msg_vel);
-*/
 
     return;
 }

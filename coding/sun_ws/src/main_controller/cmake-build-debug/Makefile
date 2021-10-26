@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/dji/apps/clion/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/dji/apps/clion/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dji/sun_ws/src/main_controller
+CMAKE_SOURCE_DIR = /home/demphi/sun_ws/src/main_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dji/sun_ws/src/main_controller/cmake-build-debug
+CMAKE_BINARY_DIR = /home/demphi/sun_ws/src/main_controller/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,19 +79,19 @@ CMAKE_BINARY_DIR = /home/dji/sun_ws/src/main_controller/cmake-build-debug
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -102,7 +102,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -113,25 +113,25 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -147,7 +147,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/home/dji/apps/clion/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+	/home/demphi/Downloads/clion-2020.3.2/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -157,9 +157,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles /home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles /home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dji/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/demphi/sun_ws/src/main_controller/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -251,6 +251,19 @@ tf2_msgs_generate_messages_cpp: cmake_check_build_system
 tf2_msgs_generate_messages_cpp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
 .PHONY : tf2_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named tmp2
+
+# Build rule for target.
+tmp2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tmp2
+.PHONY : tmp2
+
+# fast build rule for target.
+tmp2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tmp2.dir/build.make CMakeFiles/tmp2.dir/build
+.PHONY : tmp2/fast
 
 #=============================================================================
 # Target rules for targets named actionlib_generate_messages_py
@@ -758,6 +771,19 @@ geometry_msgs_generate_messages_eus: cmake_check_build_system
 geometry_msgs_generate_messages_eus/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 .PHONY : geometry_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named counter
+
+# Build rule for target.
+counter: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 counter
+.PHONY : counter
+
+# fast build rule for target.
+counter/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/counter.dir/build.make CMakeFiles/counter.dir/build
+.PHONY : counter/fast
 
 #=============================================================================
 # Target rules for targets named geographic_msgs_generate_messages_py
@@ -1282,6 +1308,33 @@ App/test_circle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/App/test_circle.cpp.s
 .PHONY : App/test_circle.cpp.s
 
+src/counter.o: src/counter.cpp.o
+
+.PHONY : src/counter.o
+
+# target to build an object file
+src/counter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/counter.dir/build.make CMakeFiles/counter.dir/src/counter.cpp.o
+.PHONY : src/counter.cpp.o
+
+src/counter.i: src/counter.cpp.i
+
+.PHONY : src/counter.i
+
+# target to preprocess a source file
+src/counter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/counter.dir/build.make CMakeFiles/counter.dir/src/counter.cpp.i
+.PHONY : src/counter.cpp.i
+
+src/counter.s: src/counter.cpp.s
+
+.PHONY : src/counter.s
+
+# target to generate assembly for a file
+src/counter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/counter.dir/build.make CMakeFiles/counter.dir/src/counter.cpp.s
+.PHONY : src/counter.cpp.s
+
 src/demo.o: src/demo.cpp.o
 
 .PHONY : src/demo.o
@@ -1308,6 +1361,33 @@ src/demo.s: src/demo.cpp.s
 src/demo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/demo.cpp.s
 .PHONY : src/demo.cpp.s
+
+src/tmp2.o: src/tmp2.cpp.o
+
+.PHONY : src/tmp2.o
+
+# target to build an object file
+src/tmp2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tmp2.dir/build.make CMakeFiles/tmp2.dir/src/tmp2.cpp.o
+.PHONY : src/tmp2.cpp.o
+
+src/tmp2.i: src/tmp2.cpp.i
+
+.PHONY : src/tmp2.i
+
+# target to preprocess a source file
+src/tmp2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tmp2.dir/build.make CMakeFiles/tmp2.dir/src/tmp2.cpp.i
+.PHONY : src/tmp2.cpp.i
+
+src/tmp2.s: src/tmp2.cpp.s
+
+.PHONY : src/tmp2.s
+
+# target to generate assembly for a file
+src/tmp2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tmp2.dir/build.make CMakeFiles/tmp2.dir/src/tmp2.cpp.s
+.PHONY : src/tmp2.cpp.s
 
 # Help Target
 help:
@@ -1393,6 +1473,7 @@ help:
 	@echo "... uuid_msgs_generate_messages_nodejs"
 	@echo "... uuid_msgs_generate_messages_py"
 	@echo "... circle"
+	@echo "... counter"
 	@echo "... demo"
 	@echo "... gmock"
 	@echo "... gmock_main"
@@ -1400,6 +1481,7 @@ help:
 	@echo "... gtest_main"
 	@echo "... rs_remap"
 	@echo "... show_status"
+	@echo "... tmp2"
 	@echo "... App/realsenseRemap.o"
 	@echo "... App/realsenseRemap.i"
 	@echo "... App/realsenseRemap.s"
@@ -1409,9 +1491,15 @@ help:
 	@echo "... App/test_circle.o"
 	@echo "... App/test_circle.i"
 	@echo "... App/test_circle.s"
+	@echo "... src/counter.o"
+	@echo "... src/counter.i"
+	@echo "... src/counter.s"
 	@echo "... src/demo.o"
 	@echo "... src/demo.i"
 	@echo "... src/demo.s"
+	@echo "... src/tmp2.o"
+	@echo "... src/tmp2.i"
+	@echo "... src/tmp2.s"
 .PHONY : help
 
 

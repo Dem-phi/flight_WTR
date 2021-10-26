@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/dji/sun_ws/src/main_controller/cmake-build-debug/devel/setup.sh
+    local-name: /home/demphi/sun_ws/src/main_controller/cmake-build-debug/devel/setup.sh

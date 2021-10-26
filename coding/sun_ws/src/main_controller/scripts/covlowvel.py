@@ -42,12 +42,41 @@ def setServo(servo1, servo2, servo3):
 		__hex[servo2//16]+__hex[servo2%16],
 		__hex[servo3//16]+__hex[servo3%16],
 	)))
-	return loads(__ser.readline().decode())
+	try:
+		bs = __ser.readline()
+		return bs
+
+	except ValueError:
+		print(bs)
+		return None
+	# return __ser.readline()
 
 def getButton():
 	if not __inited:
 		raise Exception('Call init first!')
 		
 	__ser.write(b'<S>')
-	return loads(__ser.readline().decode())
-	
+	try:
+		bs = __ser.readline()
+		return loads(bs.decode())['button']
+
+	except ValueError:
+		print(bs)
+		return None
+	# s = __ser.readline()
+	# print (s)
+	# return s
+
+def getLaser():
+	if not __inited:
+		raise Exception('Call init first!')
+
+	__ser.write(b'<L>')
+	try:
+		bs = __ser.readline()
+		return loads(bs.decode())['laser']
+
+	except ValueError:
+		print(bs)
+		return None
+	#return loads(__ser.readline().decode())['laser']

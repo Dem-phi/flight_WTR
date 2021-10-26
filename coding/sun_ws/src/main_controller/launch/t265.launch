@@ -2,13 +2,13 @@
 <!--    <include file="$(find mavros)/launch/px4.launch"/>-->
     <arg name="server" default="localhost"/>
     <include file="$(find realsense2_camera)/launch/rs_t265.launch"/>
-<!--    <include file="$(find recognition)/launch/recognition.launch"/>-->
-    <!--<node pkg="rviz" type="rviz" name="rviz" args="-d $(find main_controller)/config/default.rviz"/>-->
 
     <rosparam   command="load" file="$(find main_controller)/config/config.yaml"/>
-    
+
     <node pkg="main_controller" type="demo" name="demo" output="screen">
-<!--        <remap from="/camera/odom/sample" to="/mavros/vision_pose/pose"/>-->
+     </node>
+
+    <node pkg="main_controller" type="servo_button_node.py" name="servo_button_node" output="screen">
      </node>
 
     <node pkg="main_controller" type="rs_remap" name="rs_remap" output="screen">

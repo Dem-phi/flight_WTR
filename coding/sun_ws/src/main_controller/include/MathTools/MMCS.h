@@ -30,7 +30,7 @@ public:
 
     void update_params();
     void discard_noise(float v_min, float v_max);
-    void SaveVdata(string file = "../V_sequence.txt");
+    void SaveVdata(string file = "/home/dji/V_sequence.txt");
     float cost_func();
     Vector2f gradient();
 

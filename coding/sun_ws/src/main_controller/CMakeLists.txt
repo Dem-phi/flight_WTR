@@ -11,7 +11,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -mtune=native -funroll-loops -DND
 
 find_package(catkin REQUIRED COMPONENTS
         #recognition
-        # serial
+        serial
         roscpp
         rospy
         std_msgs
@@ -71,11 +71,24 @@ target_link_libraries(demo
         ${THIRD_PARTY_LIBS}
         ${catkin_LIBRARIES}
 )
-add_executable(tmp
-        src/tmp.cpp)
-target_link_libraries(tmp
+#add_executable(tmp
+#        src/tmp.cpp)
+#target_link_libraries(tmp
+#        ${THIRD_PARTY_LIBS}
+#        ${catkin_LIBRARIES}
+#)
+
+
+add_executable(tmp2
+        src/tmp2.cpp)
+target_link_libraries(tmp2
         ${THIRD_PARTY_LIBS}
         ${catkin_LIBRARIES}
-)
+        )
 
-
+add_executable(counter
+        src/counter.cpp)
+target_link_libraries(counter
+        ${THIRD_PARTY_LIBS}
+        ${catkin_LIBRARIES}
+        )

@@ -11,6 +11,9 @@
 #include <WaitingWorker.h>
 #include <HeightServWorker.h>
 #include <PositionWorker.h>
+#include <DetectPoseWorker.h>
+#include <PoseOffloadWorker.h>
+#include <nav_msgs/Odometry.h>
 
 
 #endif
